@@ -1,0 +1,8 @@
+/* home section-1 background */
+
+#home-bg-1 {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url("./Project-Files/Home-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
