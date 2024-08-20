@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+body {
+    background: #000;
+}
+
 #section-1-bg {
     background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5)), url("./Project-Files/Home-bg.png");
     background-size: cover;
@@ -12,16 +16,16 @@
     background-position: center;
 }
 
+.home-section-1-heading, 
+.advantages h1, 
+.membership h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .navbar nav ul li a:hover {
     color: #FF0000;
     border-bottom: 2px solid #FF0000;
     border-radius: 5px;
-}
-
-.home-bg-text h1 {
-    font-family: 'Courier New', Courier, monospace;
-    color: transparent;
-    -webkit-text-stroke: 2px #FF0000;
 }
 
 .lvl-up h1 {

@@ -92,10 +92,10 @@
 
     </section>
 
-    <section id="advantages" class="bg-[#000] p-[30px]">
+    <section id="advantages" class="p-[30px] mb-[100px]">
 
-        <div class=" flex flex-col justify-center items-center p-[15px] pt-[20px]">
-            <h1 class="text-[#fff] font-bold lg:text-[50px] md:text-[50px] text-[35px]"><span class="text-[#FF0000]">Reasons</span> To Join</h1>
+        <div class="advantages flex flex-col justify-center items-center p-[15px] pt-[20px]">
+            <h1 class="text-[#fff] font-bold lg:text-[50px] md:text-[50px] text-[30px]"><span class="text-[#FF0000]">Reasons</span> To Join</h1>
 
             <p class="text-[#fff] p-[20px]">Gym workouts offer a versatile and customisable experience, allowing everyone to set specific fitness goals.</p>
         </div>
@@ -191,34 +191,76 @@
     </section>
 
     <section id="membership">
-<!-- Slideshow Container -->
-<div class="slideshow-container relative max-w-full overflow-hidden">
-    <!-- Slide 1 -->
-    <div class="mySlides absolute">
-        <img class="object-cover" src="./Project-Files/Home-bg.png" alt="Men's Team">
-    </div>
 
-    <!-- Slide 2 -->
-    <div class="mySlides absolute">
-        <img class="object-cover" src="./Project-Files/Silva-Gym-logo.png" alt="Women's Team">
-    </div>
-</div>
+        <div class="membership font-bold flex flex-col justify-center items-center">
+            <h1 class="text-[#fff] lg:text-[50px] md:text-[50px] text-[30px] m-[10px]">Gym <span class="text-[#FF0000]">Membership</span></h1>
+            <h3 class="lg:text-[40px] md:text-[40px] text-[20px] text-[#fff] font-thin mb-[30px]">Our Packages</h3>
+        </div>
 
-<script>
-    let slideIndex = 0;
-    showSlides();
+        <div class="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-12 lg:px-[100px] md:px-[120px] px-[30px] mb-20">
 
-    function showSlides() {
-        let slides = document.querySelectorAll('.mySlides');
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = 'none';
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) { slideIndex = 1 }
-        slides[slideIndex - 1].style.display = 'block';
-        setTimeout(showSlides, 4000); // Change slide every 4 seconds
-    }
-</script>
+            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
+
+                <h2 class="text-[#FF0000] mb-[10px]">BASIC PACKAGE</h2>
+
+                <div class="flex flex-col justify-center items-start">
+                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 100, OOO</h3>
+                    <span class="font-thin mb-[10px]">per month</span>
+                </div>
+
+                <div class="flex flex-col justify-center items-start">
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>2x Fitness Consultant</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>1x Free Suplement</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>3 Days per week</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
+                </div>
+                <a href="#" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+            </div>
+
+            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
+
+                <h2 class="text-[#FF0000] mb-[10px]">MID PACKAGE</h2>
+
+                <div class="flex flex-col justify-center items-start">
+                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 275, OOO</h3>
+                    <span class="font-thin mb-[10px]">per 2 months</span>
+                </div>
+
+                <div class="flex flex-col justify-center items-start">
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>4x Fitness Consultant</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>3x Free Suplement</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>5 Days per week</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
+                </div>
+                <a href="#" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+            </div>
+
+            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
+
+                <h2 class="text-[#FF0000] mb-[10px]">PRO PACKAGE</h2>
+
+                <div class="flex flex-col justify-center items-start">
+                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 500, OOO</h3>
+                    <span class="font-thin mb-[10px]">per 3 months</span>
+                </div>
+
+                <div class="flex flex-col justify-center items-start">
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>7x Fitness Consultant</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>5x Free Suplement</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Gym Card</p>
+                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
+                </div>
+                <a href="#" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+            </div>
+
+        </div>
+
     </section>
     
 </body>   
