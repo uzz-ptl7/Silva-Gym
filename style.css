@@ -18,7 +18,9 @@ body {
 
 .home-section-1-heading, 
 .advantages h1, 
-.membership h1 {
+.membership h1, 
+.team h1, 
+.team span {
     font-family: 'Courier New', Courier, monospace;
 }
 
