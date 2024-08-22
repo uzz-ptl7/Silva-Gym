@@ -9,7 +9,8 @@ body {
     background: #000;
 }
 
-#section-1-bg {
+#section-1-bg,
+#about {
     background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5)), url("./Project-Files/Home-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
