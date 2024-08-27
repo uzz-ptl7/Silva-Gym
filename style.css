@@ -1,15 +1,9 @@
-/* General Styling */
-
-* {
-    margin: 0;
-    padding: 0;
-}
 
 body {
     background: #000;
 }
 
-#section-1-bg,
+#home,
 #about {
     background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5)), url("./Project-Files/Home-bg.png");
     background-size: cover;
