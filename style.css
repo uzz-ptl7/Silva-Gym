@@ -1,8 +1,4 @@
 
-body {
-    background: #000;
-}
-
 #home,
 #about {
     background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5)), url("./Project-Files/Home-bg.png");
@@ -19,14 +15,36 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
-.navbar nav ul li a:hover {
-    color: #FF0000;
-    border-bottom: 2px solid #FF0000;
-    border-radius: 5px;
-}
-
 .lvl-up h1 {
     letter-spacing: 3px;
     -webkit-text-stroke: 1px #fff;
 }
 
+.trainer-1 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Basile.jpg");
+}
+.trainer-2 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Sam.jpg");
+}
+.trainer-3 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Manu.png");
+}
+.trainer-4 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Jimmy.jpg");
+}
+.trainer-5 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Manzi-Johnson.jpg");
+}
+.trainer-6 {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/about.png");
+}
+.trainer-1, 
+.trainer-2, 
+.trainer-3,
+.trainer-4,
+.trainer-5,
+.trainer-6 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
