@@ -20,9 +20,13 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-.lvl-up h1 {
+.lvl-up h1,
+.register-bg h1 {
     letter-spacing: 3px;
     -webkit-text-stroke: 1px #fff;
+}
+.register-bg h1 {
+    -webkit-text-stroke: 2px #FF0000;
 }
 
 .trainer-1 {
@@ -53,4 +57,28 @@
     background-repeat: no-repeat;
     background-position: center; 
     font-family: 'Courier New', Courier, monospace;
+}
+
+.register-bg {
+    height: 90vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Register.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.register-info {
+    background-color: #0D0D0D;
+    color: #FF0000;
+    border: none;
+    border-radius: 30px;
+    box-shadow: .5px 1px 2px 4px #303030;
+    transition: .5s ease-in-out;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 20px #202020 !important;
+    -webkit-text-fill-color: #000 !important;
 }

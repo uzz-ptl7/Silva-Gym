@@ -37,6 +37,42 @@
 
     </header>
 
+    <main class="flex">
+
+        <div class="register-bg w-[50%] flex flex-col justify-center items-center font-bold italic font-serif">
+            <h1 class="text-[100px]">REGISTER</h1>
+            <h1 class="text-[100px] flex justify-end">NOW</h1>
+        </div>
+
+        <div class="register-details w-[50%] flex justify-center items-center">
+            <form action="./register.php" method="post" class="w-[60%]">
+                <div class="mb-2 py-3">
+                    <input type="text" id="name" placeholder="Full Name" name="names" required class="register-info w-full px-4 py-2 lg:text-xl md:text-md text-sm outline-none focus:rounded-[10px]">
+                </div>
+                <div class="mb-2 py-3">
+                    <input type="email" id="email" placeholder="Email Address" name="email" required class="register-info w-full px-4 py-2 lg:text-xl md:text-md text-sm outline-none focus:rounded-[10px]">
+                </div>
+                <div class="mb-2 py-3">
+                    <input type="number" min="1" max="200" id="age" placeholder="Age" name="age" required class="register-info w-full px-4 py-2 border lg:text-xl md:text-md text-sm outline-none focus:rounded-[10px]">
+                </div>
+                <div class="mb-2 py-3">
+                    <input type="tel" id="phone" placeholder="Phone Number" name="phone" required class="register-info w-full px-4 py-2 lg:text-xl md:text-md text-sm outline-none focus:rounded-[10px]">
+                </div>
+                <div class="mb-2 py-5">
+                    <label for="package" class="block lg:text-lg text-sm font-medium text-[#C0C0C0] mb-2">Choose your Membership Plan!</label>
+                    <select id="package" required class="register-info w-full px-4 py-2 lg:text-xl md:text-md text-sm outline-none focus:rounded-[10px]">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="mid">Mid Package</option>
+                        <option value="pro">Pro Package</option>
+                    </select>
+                </div>
+                <button type="submit" name="send" class="w-full py-2 bg-[#303030] text-[#C0C0C0] hover:text-[#FF0000] rounded-3xl hover:bg-[#0D0D0D] transition-all duration-300 lg:text-xl md:text-md text-sm">Sign Up</button>
+            </form>
+        </div>
+
+    </main>
+
     <footer class="bg-[#0D0D0D]">
 
         <div class="flex lg:flex-row md:flex-row flex-col lg:justify-evenly lg:p-[15px] text-[#C0C0C0]">
