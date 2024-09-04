@@ -60,7 +60,6 @@
 }
 
 .register-bg {
-    height: 90vh;
     background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Register.jpg");
     background-position: center;
     background-size: cover;
