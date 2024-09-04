@@ -1,7 +1,12 @@
 
-#home,
+#home {
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.85)), url("./Project-Files/Home-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 #about {
-    background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.5)), url("./Project-Files/Home-bg.png");
+    background: linear-gradient(to left, rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url("./Project-Files/About-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -36,7 +41,7 @@
     background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Manzi-Johnson.jpg");
 }
 .trainer-6 {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/about.png");
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Ryva.jpg");
 }
 .trainer-1, 
 .trainer-2, 
@@ -47,4 +52,5 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; 
+    font-family: 'Courier New', Courier, monospace;
 }
