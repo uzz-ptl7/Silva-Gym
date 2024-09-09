@@ -1,265 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./style.css">
     <title>Silva-Gym</title>
 </head>
+
 <body class="bg-black">
 
-    <header class="lg:sticky top-0 bg-[black] opacity-[90%]">
+    <header class="lg:sticky top-0 bg-black bg-opacity-90 shadow-lg z-50">
+        <div
+            class="header flex flex-wrap lg:flex-nowrap items-center justify-between border-b border-gray-300 px-6 py-4">
 
-        <div class="header flex lg:flex-row flex-col border-b border-[#C0C0C0] px-6 py-2">
+            <!-- Logo Section -->
+            <div class="header-logo flex flex-wrap items-center lg:w-1/3 w-full justify-between lg:justify-start">
+                <div class="flex items-center">
+                    <img src="./Project-Files/Silva-Gym-logo.png" alt="Silva Gym Logo" width="80" height="80"
+                        class="transition-transform duration-300 hover:scale-110">
+                    <h1 class="text-white lg:text-4xl text-2xl font-extrabold ml-4">SILVA<span
+                            class="text-red-600">GYM</span></h1>
+                </div>
 
-            <div class="header-logo flex lg:justify-start justify-center items-center lg:w-[30%] w-full">   
-
-                <img src="./Project-Files/Silva-Gym-logo.png" width="100" height="100">
-                <h1 class="text-white text-4xl font-bold m-5">SILVA<span class="text-[#FF0000]">GYM</span></h1>
-
+                <!-- Hamburger Menu Icon for Mobile -->
+                <button id="menu-btn" class="block lg:hidden text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
 
-            <div class="navbar flex lg:justify-end justify-center items-center text-[white] text-[18px] lg:w-[70%] w-full">
-                <nav>
-                    <ul class="flex lg:gap-12 md:gap-12 gap-4 lg:flex-row md:flex-row flex-col lg:p-[20px] p-[30px]">
-                        <li><a href="#home" class="hover:text-[#FF0000] hover:border-b-[2px] border-[#FF0000] rounded-[5px]">Home</a></li>
-                        <li><a href="#advantages" class="hover:text-[#FF0000] hover:border-b-[2px] border-[#FF0000] rounded-[5px]">Advantages</a></li>
-                        <li><a href="#membership" class="hover:text-[#FF0000] hover:border-b-[2px] border-[#FF0000] rounded-[5px]">Membership</a></li>
-                        <li><a href="#about" class="hover:text-[#FF0000] hover:border-b-[2px] border-[#FF0000] rounded-[5px]">About Us</a></li>
-                        <li><a href="#team" class="hover:text-[#FF0000] hover:border-b-[2px] border-[#FF0000] rounded-[5px]">Team</a></li>
-                    </ul>
-                </nav>
-            </div>
-    
+            <!-- Navigation Section (hidden on small screens, toggled by the hamburger icon) -->
+            <nav id="menu" class="navbar lg:w-2/3 w-full hidden lg:flex justify-center lg:justify-end mt-4 lg:mt-0 ">
+                <ul class="flex lg:gap-12 gap-6 text-white text-lg">
+                    <li><a href="#home"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Home</a>
+                    </li>
+                    <li><a href="#about-us"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">About
+                            Us</a></li>
+                    <li><a href="#Advantages"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Advantages</a>
+                    </li>
+                    <li><a href="#membership"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Membership</a>
+                    </li>
+
+                    <li><a href="#team"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Team</a>
+                    </li>
+                    <li><a href="./contact.html"
+                        class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Contact</a>
+                </li>
+                </ul>
+            </nav>
         </div>
 
+        <!-- Mobile Menu (Initially hidden, will appear when the hamburger icon is clicked) -->
+        <div id="mobile-menu-container" class="fixed inset-0 z-40 bg-black bg-opacity-60 hidden">
+            <!-- Slide-in Mobile Menu -->
+            <nav id="mobile-menu"
+                class="lg:hidden bg-black bg-opacity-95 w-64 fixed right-0 top-0 h-full transform translate-x-full transition-transform duration-300">
+                <div class="flex justify-end p-4">
+                    <!-- Close Icon -->
+                    <button id="close-menu-btn" class="text-white text-3xl focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <ul class="flex flex-col items-start gap-4 text-white text-lg px-6 py-4">
+                    <li><a href="#home" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 100ms;">Home</a></li>
+                    <li><a href="#about-us" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 400ms;">About Us</a></li>
+                    <li><a href="#Advantages" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 200ms;">Advantages</a></li>
+                    <li><a href="#membership" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 300ms;">Membership</a></li>
+
+                    <li><a href="#team" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 500ms;">Team</a></li>
+                            <li><a href="./contact.html" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                                style="transition-delay: 500ms;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home">
+    <section id="home" class="bg-[#1A1A1A] text-white relative overflow-hidden">
 
-        <div class="flex lg:flex-row md:flex-col-reverse flex-col-reverse lg:p-[100px] md:p-[70px] p-[40px]">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="absolute inset-0 z-[-2] w-full h-full object-cover">
+            <source src="path_to_your_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
-            <div class="home-content flex flex-col gap-12 lg:justify-center justify-center lg:items-start items-center lg:w-[75%]">
+        <!-- Main Flex Container -->
+        <div class="flex lg:flex-row md:flex-col-reverse flex-col-reverse :p-[80px] md:p-[50px] p-[30px] gap-8">
 
-                <div class="home-section-1-heading flex flex-col border-l-[5px] border-[#FF0000] px-[5px]">
+            <!-- Left Content: Text and CTA -->
+            <div class="home-content flex flex-col gap-8 lg:justify-center justify-center lg:items-start items-center ">
 
-                    <h1 class="text-[#fff] lg:text-[70px] md:text-[40px] text-[30px] font-bold">READY TO TRAIN</h1>
-                    <span class="lg:text-[70px] md:text-[40px] text-[30px] text-[#FF0000] font-bold">YOUR BODY</span>
-
+                <!-- Heading Section with Reduced Padding -->
+                <div class="home-section-1-heading  flex flex-col border-l-[5px] border-[#FF0000] px-[5px]">
+                    <h1 class="text-[#fff] lg:text-[60px] md:text-[40px] text-[28px] font-bold leading-snug">
+                        READY TO TRAIN
+                    </h1>
+                    <span class="lg:text-[60px] md:text-[40px] text-[28px] text-[#FF0000] font-bold">
+                        YOUR BODY
+                    </span>
                 </div>
 
-                <div class="flex items-center justify-center lg:w-[60%] md:w-[60%] w-[80%]">
-                    <p class="text-[#F1F1F1] font-[18px] font-thin">Gym training is a structured and disciplined approach to physical exercise that focuses on strength, endurance and overall fitness improvement.</p>
+                <!-- Short Description with Optimized Width and Text Size -->
+                <div class="flex items-center justify-center lg:w-[70%] md:w-[80%] w-[100%]">
+                    <p class="text-[#F1F1F1]  lg:text-xl text-lg text-left font-[16px] leading-relaxed">
+                        Silva Gym is more than just a place to work out—it's where your journey towards strength,
+                        endurance,
+                        and peak fitness begins. Every rep, every drop of sweat gets you closer to unlocking your best
+                        self.
+                        Let's push limits and level up together at Silva Gym!
+                    </p>
                 </div>
 
+                <!-- Call to Action Button with Rounded Corners -->
                 <div>
-                    <a href="./register.html" class="text-[#FF0000] bg-[transparent] border border-[#C0C0C0] rounded-[50px] px-[20px] py-[12px] lg:ml-[200px]">GET STARTED</a>
+                    <a href="./register.html"
+                        class="text-[#FF0000] hover:text-white hover:border-red-700 hover:bg-black transition-all duration-300 border border-[#C0C0C0] rounded-full px-[20px] py-[10px] lg:ml-[150px] font-bold">
+                        GET STARTED
+                    </a>
                 </div>
 
             </div>
-            
-            <div class="lvl-up text-[transparent] lg:text-[200px] md:text-[150px] text-[100px] font-[600] flex flex-col justify-start items-end lg:mr-[50px] lg:mt-[-160px] lg:w-[25%]">
-                <h1>LEVEL</h1>
-                <h1 class="lg:mt-[-80px] md:mt-[-60px] mt-[-40px]">UP</h1>
+
+            <!-- Right Content: 'LEVEL UP' Text with Balanced Sizing -->
+            <div
+                class="lvl-up text-[transparent] lg:text-[180px] md:text-[120px] text-[90px] font-extrabold flex flex-col justify-start items-end lg:mr-[30px] relative">
+                <h1 class="text-outline-white tracking-wide">LEVEL</h1>
+                <h1 class="lg:mt-[-70px] md:mt-[-50px] mt-[-30px] text-outline-white">UP</h1>
+                <div
+                    class="absolute top-0 right-0 animate-bounce w-[40px] h-[40px] bg-[#FF0000] opacity-50 rounded-full">
+                </div>
             </div>
+
+        </div>
+
+        <!-- Statistics Section with Enhanced Design and Animated Counters -->
+        <div id="stats" class="bg-black py-16 ">
+            <div class="container mx-auto px-6 lg:px-8 ">
+                <div class="flex flex-col lg:flex-row lg:justify-between lg:space-x-8">
+
+                    <!-- Experience Stat -->
+                    <div
+                        class="flex flex-col items-center p-6 lg:p-8 bg-black border border-gray-500 opacity-60 rounded-lg shadow-lg lg:w-[30%] mb-6 lg:mb-0 hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-[#FF0000] lg:text-[100px] md:text-[80px] text-[50px] font-bold counter"
+                            data-target="20">0</div>
+                        <div class="text-[#fff] font-800 text-2xl font-light mt-2">Years of Experience</div>
+                    </div>
+
+                    <!-- Members Stat -->
+                    <div
+                        class="flex flex-col items-center p-6 lg:p-8 bg-black border border-gray-500 opacity-60 rounded-lg shadow-lg lg:w-[30%] mb-6 lg:mb-0 hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-[#FF0000] lg:text-[100px] md:text-[80px] text-[50px] font-bold counter"
+                            data-target="1500">0</div>
+                        <div class="text-[#fff] font-800 text-2xl font-light mt-2">Members Joined</div>
+                    </div>
+
+                    <!-- Happy Members Stat -->
+                    <div
+                        class="flex flex-col items-center p-6 lg:p-8 bg-black border border-gray-500 opacity-60 rounded-lg shadow-lg lg:w-[30%] mb-6 lg:mb-0 hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-[#FF0000] lg:text-[100px] md:text-[80px] text-[50px] font-bold counter"
+                            data-target="1400">0</div>
+                        <div class="text-[#fff] font-800 text-2xl font-light mt-2">Happy Members</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Subtle Background Wave for Better Visual Appeal -->
+        <div class="absolute inset-0 z-[-1]">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#FF0000" fill-opacity="0.3" d="M0,192L1440,320L1440,0L0,0Z"></path>
+            </svg>
+        </div>
+
+    </section>
+
+   <!-- About section..... -->
+    <section id="about-us" class="flex flex-col lg:flex-row items-center justify-between bg-[#0D0D0D] text-[#C0C0C0] px-6 py-16">
     
+        <!-- Video Poster with Play Icon -->
+        <div class="relative lg:w-1/2 w-full mb-8 lg:mb-0">
+            <img src="https://www.bodybuilding.com/images/2022/december/3-reasons-to-start-your-gym-routine-before-the-new-year-header-960x540.jpg" alt="Silva Gym Video" class="w-full h-auto object-cover rounded-lg shadow-lg">
+            <!-- Red Play Icon Overlay -->
+            <a target="_blank" href="./Project-Files/home-vd.mp4" class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-red-600 text-white  rounded-full p-4 lg:p-6 transition-transform transform hover:scale-105">
+                    <i class="fas fa-play fa-2x"></i> <!-- FontAwesome play icon -->
+                </div>
+            </a>
         </div>
-
-        <div class="flex justify-center lg:w-[60%] pb-[100px]">
-
-            <div class="flex flex-col items-center p-[5px] m-[20px] border-r border-[#E2E2E2] lg:w-[20%]">
-                <div class="text-[#FF0000] text-[30px]">20+</div>
-                <div class="text-[#fff] font-thin">Years of Experience</div>
-            </div>
-
-            <div class="flex flex-col items-center p-[5px] m-[20px] border-r border-[#E2E2E2] lg:w-[20%]">
-                <div class="text-[#FF0000] text-[30px]">15K+</div>
-                <div class="text-[#fff] font-thin">Members Join</div>
-            </div>
-
-            <div class="flex flex-col items-center p-[5px] m-[20px] lg:w-[20%]">
-                <div class="text-[#FF0000] text-[30px]">14K+</div>
-                <div class="text-[#fff] font-thin">Happy members</div>
-            </div>
-
+    
+        <!-- Text Content -->
+        <div class="lg:w-1/2 w-full lg:pl-10 text-left">
+            <!-- H1 Title with Left Red Border -->
+            <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-4 border-l-4 border-red-500 pl-4 font-sans">
+                Welcome to Silva Gym
+            </h1>
+    
+            <!-- H2 Subtitle -->
+            <h2 class="text-lg lg:text-xl font-semibold text-[#FF0000] mb-6">
+                Silva Gym: Our dedicated Ponigym areas and fitness experts can help you discover new training techniques and exercises that offer a dynamic and efficient full-body workout.
+            </h2>
+    
+            <!-- Paragraph -->
+            <p class="text-sm lg:text-md leading-relaxed w-[90%]">
+                Silva Gym is open 24/7, offering you the flexibility to train at any time that suits your schedule. Our state-of-the-art facilities and expert trainers are available around the clock to support your fitness journey. Whether you're an early riser or prefer late-night workouts, Silva Gym is always open to help you reach your goals. Join us and take advantage of our continuous access to personalized training programs, top-tier equipment, and a community that motivates you every step of the way.
+            </p>
         </div>
+    
+    </section>
+    
 
+
+    <section id="Advantages" class="bg-black py-12">
+        <div class="container mx-auto px-4">
+            <!-- Small Title and Big Headline -->
+            <div class="text-center mb-10">
+                <h2 class="text-lg font-semibold text-[#FF0000]">Why Choose Us?</h2>
+                <h1 class="push lg:text-4xl text-2xl font-bold text-white mt-2">PUSH YOUR LIMITS FORWARD</h1>
+            </div>
+
+            <!-- Benefits Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
+                <!-- Modern Equipment -->
+                <div class="grid-cols-1  lg:p-8 p-4 rounded-lg">
+                    <span class="flex items-center justify-center bg-[#FF0000] rounded-full w-16 h-16 mb-4">
+                        <i class="text-white fas fa-dumbbell text-2xl"></i>
+                    </span>
+                    <h3 class="text-xl font-semibold text-[#999] font-800 mb-2">Modern Equipment</h3>
+                    <p class="text-md text-[#666]">Our gym features cutting-edge fitness equipment designed to maximize
+                        your workouts and help you achieve your goals efficiently.</p>
+                </div>
+
+                <!-- Healthy Nutrition Plan -->
+                <div class="grid-cols-1  lg:p-8 p-4 rounded-lg">
+                    <span class="flex items-center justify-center bg-[#FF0000] rounded-full w-16 h-16 mb-4">
+                        <i class="text-white fas fa-apple-alt text-2xl"></i>
+                    </span>
+                    <h3 class="text-xl font-semibold text-[#999] font-800 mb-2">Healthy Nutrition Plan</h3>
+                    <p class="text-md text-[#666]">Our nutrition experts provide personalized meal plans to support your
+                        fitness journey and ensure you maintain a balanced diet.</p>
+                </div>
+
+                <!-- Professional Training Plan -->
+                <div class="grid-cols-1  lg:p-8 p-4 rounded-lg">
+                    <span class="flex items-center justify-center bg-[#FF0000] rounded-full w-16 h-16 mb-4">
+                        <i class="text-white fas fa-user-ninja text-2xl"></i>
+                    </span>
+                    <h3 class="text-xl font-semibold text-[#999] font-800 mb-2">Professional Training Plan</h3>
+                    <p class="text-md text-[#666]">Our certified trainers will create a customized training plan to help
+                        you reach your fitness goals and improve your overall performance.</p>
+                </div>
+
+                <!-- Unique to Your Needs -->
+                <div class="grid-cols-1  lg:p-8 p-4 rounded-lg">
+                    <span class="flex items-center justify-center bg-[#FF0000] rounded-full w-16 h-16 mb-4">
+                        <i class="text-white fas fa-clock text-2xl"></i>
+                    </span>
+                    <h3 class="text-xl font-semibold text-[#999] font-800 mb-2">Open 24/7</h3>
+                    <p class="text-md text-[#666]">    Silva Gym is open 24/7, providing you with complete flexibility to work out whenever it suits you best. With our advanced fingerprint access system.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="advantages" class="p-[30px] lg:mb-[80px] mb-[50px]">
 
-        <div class="advantages flex flex-col justify-center items-center p-[15px] pt-[20px]">
-            <h1 class="text-[#fff] font-bold lg:text-[50px] md:text-[50px] text-[30px]"><span class="text-[#FF0000]">Reasons</span> To Join</h1>
 
-            <p class="text-[#fff] p-[20px]">Gym workouts offer a versatile and customisable experience, allowing everyone to set specific fitness goals.</p>
+
+
+    <section id="membership" class="relative">
+        <!-- Background design for section -->
+
+
+        <div class="membership font-bold flex flex-col justify-center items-center relative z-10">
+            <!-- Section title -->
+            <h1
+                class="text-white lg:text-[55px] md:text-[50px] text-[35px] leading-tight m-[10px] text-center uppercase">
+                Join Our <span class="text-red-600">Elite Gym</span>
+            </h1>
+            <h3 class="lg:text-[35px] md:text-[30px] text-[25px] text-white font-light mb-[40px] uppercase">
+                Exclusive Membership Plans
+            </h3>
         </div>
 
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-12 lg:py-[50px] lg:px-[50px]">
+        <!-- Membership Packages -->
+        <div
+            class="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-10 lg:px-[100px] md:px-[80px] px-[15px] relative z-10 py-12">
 
-            <div class="text-white flex justify-center items-center p-[20px] border border-[#FF0000] rounded-lg">
-                <div class="p-[10px] lg:m-[30px] md:m-[20px] m-[10px]">
-                    <svg width="51" height="53" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 477 511.74"><path d="m335.34 191.12-5.03-36.37-.26-.1c-61.57-26.84-121.66-25.09-183.31.15l-5.04 36.26c50.76-28.9 142.84-28.68 193.64.06zm-81.51 207.67 32.16 48.52c4.75 7.24 4.58 11.13-3.03 15.94l-32.22 20.19c-7.84 4.96-12.47 5.26-17.92-3.1l-34.99-53.11c-2.18-5.3-1.12-9.13 2.59-11.78l24.74-15.56c-22.89-13.31-40.83-25.36-53.23-38-14.36-14.63-21.45-29.99-20.37-48.63-60.93 11.41-113.17 22.11-128.31 99.1l-3.47 25.72h92.71v-36.17h11.33v98.91h-11.33v-37.4H16.37l-5.1 37.79h454.35l-5.9-37.79h-95.73v37.4h-11.32v-98.91h11.32v36.17h91.77l-6.39-40.91c-12.44-61.2-69.74-73.26-123.81-81.75.42 17.68-6.66 32.41-20.46 46.47-12.05 12.28-29.32 24-51.3 36.87l.03.03zm-18.34-5.95c2.3-.73 4.6-.88 6.9-.49 23.89-13.71 42.37-25.86 54.66-38.38 12.08-12.31 18.05-25.05 17.14-40.31-3.45-.53-6.88-1.06-10.36-1.62-21.36 37.48-112.34 36.62-131.21-2.79-3.22.64-6.42 1.26-9.6 1.86l-.02.53c-1.58 16.16 4.36 29.48 16.98 42.33 12.43 12.67 31.22 24.95 55.51 38.87zm64.19-92.13c5.65.94 11.85 1.9 18.12 2.86 60.07 9.24 127.28 19.58 141.87 91.62 6.42 36.42 11.54 73.86 17.27 110.49a5.243 5.243 0 0 1-4.38 5.98l-.81.06-466.48.02a5.269 5.269 0 0 1-5.16-6.35l12.81-95.02c16.71-85 73.35-95.59 139.05-107.87l.18-.03c7.47-1.39 15.07-2.82 22.72-4.37.87-.18 1.74-.13 2.54.11l.05-12.7c-14.8-13.39-19.51-29.6-25.66-47.7-2.85-.38-5.52-1.7-7.92-3.65-9.63-7.9-13.58-22.82-13.29-34.62l.59.1 6.93-49.9-1.96-30.73c-.13-2.03-.2-3.94-.2-5.72 0-50.79 42.88-90.27 91.87-95.05v-5.01c0-7.28 5.96-13.23 13.24-13.23s13.23 5.95 13.23 13.23v5.6c47.71 6.99 85.54 47 85.54 96.02-.9 2.41-.78 30.42-.89 34.76l6.9 49.98c.06.33.07.67.05 1.01l.28.01c1.4 9.9-5.03 25.65-11.79 33.1-2.74 2.93-5.81 5.04-9.15 5.86-6.24 19.97-9.11 33.81-25.74 48.63.12 1.2.17 6.65.19 12.51zM238.51 62.27c12.81 0 23.19 10.39 23.19 23.19 0 12.81-10.38 23.2-23.19 23.2s-23.19-10.39-23.19-23.2c0-12.8 10.38-23.19 23.19-23.19zm91.37 80.16.7-27.58c-.04-48.61-40.94-86.59-88.67-87.83-3.35-.01-6.66-.04-10.01.17-45.49 2.9-86.67 38.9-86.67 86.1 0 1.81.05 3.53.15 5.14l1.55 24.26c61.29-24.05 121.69-25.63 182.95-.26zM140.9 202.4c1.15 6.18 5.05 18.66 10.19 22.9 3.08 2.44 4.09-.3 7.39 1.47 2.82 1.54 3.46 5.33 4.43 8.14 6.86 20.36 10.87 34.14 29.23 48.15 28.84 21.9 67 22.84 95.67.07 19.4-15.3 20.65-28.54 27.57-50.4 1.62-6.27 6.5-2.06 10.74-6.72 4.44-5.06 8.64-16.95 10.19-23.46-47.94-31.56-147.5-31.88-195.41-.15zm47.45 110.67c22.05 20.82 79.05 21.52 101.08.45v-17.24c-30.47 19.11-60.19 20.49-92.57 3.71-3.08-1.61-6.15-3.38-9.27-5.36l.76 18.44zm61.16 91.82c.11.6.17 1.23.17 1.86 0 5.71-4.62 10.34-10.33 10.34-5.7 0-10.32-4.63-10.32-10.34 0-.63.05-1.26.16-1.86 5.7 2.75 12.54 2.59 20.32 0z" fill="red"/></svg>
-                </div>
+            <!-- BASIC PACKAGE -->
+            <div
+                class="relative flex flex-col items-center text-white bg-black to-white p-[25px] rounded-[8px] shadow-md transition-all duration-300 hover:scale-105">
+                <h2 class="text-red-600 mb-[15px] text-[28px] uppercase">Basic Package</h2>
 
-                <div class="flex flex-col">
-                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">Personal Training</h2>
-                    <p class="text-[14px]">Our gyms offer personalized training sessions with certified personal trainers who create customized workout plans based on individual goals</p>
-                </div>
-            </div>
-
-            <div class="text-white flex justify-center items-center p-[20px] border border-[#FF0000] rounded-lg">
-                <div class="p-[10px] lg:m-[30px] md:m-[20px] m-[10px]">
-                    <svg width="51" height="53" viewBox="0 0 51 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M35.698 29.1253H15.1783C14.8527 29.1253 14.5969 28.8695 14.5969 28.5439C14.5969 28.2184 14.8527 27.9626 15.1783 27.9626H35.6868C36.0123 27.9626 36.2681 28.2184 36.2681 28.5439C36.2681 28.8695 36.0123 29.1253 35.6984 29.1253H35.698ZM35.698 25.0562H15.1783C14.8527 25.0562 14.5969 24.8004 14.5969 24.4748C14.5969 24.1493 14.8527 23.8935 15.1783 23.8935H35.6868C36.0123 23.8935 36.2681 24.1493 36.2681 24.4748C36.2681 24.8004 36.0123 25.0562 35.6984 25.0562H35.698Z" fill="red"/>
-                        <path d="M14.0274 34.415H12.737C11.7838 34.415 11.0046 33.6362 11.0046 32.6826V20.3469C11.0046 19.3937 11.7834 18.6145 12.737 18.6145H14.0274C14.9806 18.6145 15.7597 19.3933 15.7597 20.3469V32.6826C15.7597 33.6362 14.9923 34.415 14.0274 34.415ZM12.737 19.7773C12.4232 19.7773 12.1673 20.0331 12.1673 20.3469V32.6939C12.1673 33.0077 12.4232 33.2636 12.737 33.2636H14.0274C14.3412 33.2636 14.5971 33.0077 14.5971 32.6939V20.3469C14.5971 20.0331 14.3412 19.7773 14.0274 19.7773H12.737Z" fill="red"/>
-                        <path d="M10.4344 32.1485H9.14399C8.19078 32.1485 7.41162 31.3697 7.41162 30.4161V22.6148C7.41162 21.6616 8.1904 20.8824 9.14399 20.8824H10.4344C11.3876 20.8824 12.1667 21.6612 12.1667 22.6148C12.1667 22.9403 11.9109 23.1962 11.5854 23.1962C11.2599 23.1962 11.004 22.9403 11.004 22.6148C11.004 22.301 10.7482 22.0451 10.4344 22.0451L9.14398 22.0455C8.83013 22.0455 8.57431 22.3013 8.57431 22.6152V30.4165C8.57431 30.7303 8.83013 30.9861 9.14398 30.9861H10.4344C10.7482 30.9861 11.004 30.7303 11.004 30.4165C11.004 30.0909 11.2599 29.8351 11.5854 29.8351C11.9109 29.8351 12.1667 30.0909 12.1667 30.4165C12.1667 31.3697 11.388 32.1485 10.4344 32.1485Z" fill="red"/>
-                        <path d="M6.84208 30.5789H5.5517C4.59849 30.5789 3.81934 29.8001 3.81934 28.8465V24.1845C3.81934 23.2312 4.59811 22.4521 5.5517 22.4521H6.84208C7.79528 22.4521 8.57444 23.2309 8.57444 24.1845C8.57444 24.51 8.31862 24.7658 7.99309 24.7658C7.66757 24.7658 7.41174 24.51 7.41174 24.1845C7.41174 23.8706 7.15592 23.6148 6.84207 23.6148H5.55169C5.23784 23.6148 4.98202 23.8706 4.98202 24.1845V28.8465C4.98202 29.1604 5.23784 29.4162 5.55169 29.4162H6.84207C7.15592 29.4162 7.41174 29.1604 7.41174 28.8465C7.41174 28.521 7.66757 28.2652 7.99309 28.2652C8.31862 28.2652 8.57444 28.521 8.57444 28.8465C8.57444 29.8001 7.7953 30.5789 6.84208 30.5789Z" fill="red"/>
-                        <path d="M4.40091 29.1253H1.06426C0.738734 29.1253 0.48291 28.8695 0.48291 28.5439V24.4748C0.48291 24.1493 0.738734 23.8935 1.06426 23.8935H4.40091C4.72644 23.8935 4.98226 24.1493 4.98226 24.4748C4.98226 24.8004 4.72644 25.0562 4.40091 25.0562H1.64564V27.9625H4.40091C4.72644 27.9625 4.98226 28.2184 4.98226 28.5439C4.98226 28.8694 4.72644 29.1253 4.40091 29.1253Z" fill="red"/>
-                        <path d="M35.698 11.4531H15.1783C14.8527 11.4531 14.5969 11.1973 14.5969 10.8718C14.5969 10.5462 14.8527 10.2904 15.1783 10.2904H35.6868C36.0123 10.2904 36.2681 10.5462 36.2681 10.8718C36.2681 11.1973 36.0123 11.4531 35.6984 11.4531H35.698ZM35.698 7.38402H15.1783C14.8527 7.38402 14.5969 7.12819 14.5969 6.80266C14.5969 6.47714 14.8527 6.22131 15.1783 6.22131H35.6868C36.0123 6.22131 36.2681 6.47714 36.2681 6.80266C36.2681 7.12819 36.0123 7.38402 35.6984 7.38402H35.698Z" fill="red"/>
-                        <path d="M13.6321 16.7437H11.8998C10.7254 16.7437 9.77222 15.7905 9.77222 14.6162V3.05962C9.77222 1.88528 10.7254 0.932068 11.8998 0.932068H13.6321C14.8065 0.932068 15.7597 1.88528 15.7597 3.05962V14.6041C15.7597 15.7897 14.8065 16.743 13.6321 16.743V16.7437ZM11.8998 2.09483C11.3651 2.09483 10.9349 2.52509 10.9349 3.05971V14.6041C10.9349 15.1388 11.3651 15.569 11.8998 15.569H13.6321C14.1668 15.569 14.597 15.1388 14.597 14.6041V3.05971C14.597 2.52507 14.1668 2.09483 13.6321 2.09483H11.8998Z" fill="red"/>
-                        <path d="M8.80669 13.047H7.07433C5.89998 13.047 4.94678 12.0938 4.94678 10.9195V6.75731C4.94678 5.58297 5.89998 4.62976 7.07433 4.62976H8.80669C9.98104 4.62976 10.9342 5.58297 10.9342 6.75731C10.9342 7.08284 10.6784 7.33866 10.3529 7.33866C10.0274 7.33866 9.77154 7.08284 9.77154 6.75731C9.77154 6.22267 9.34128 5.79243 8.80666 5.79243L7.07429 5.79206C6.53965 5.79206 6.1094 6.22233 6.1094 6.75695V10.9074C6.1094 11.442 6.53967 11.8723 7.07429 11.8723H8.80666C9.34129 11.8723 9.77154 11.442 9.77154 10.9074C9.77154 10.5819 10.0274 10.3261 10.3529 10.3261C10.6784 10.3261 10.9342 10.5819 10.9342 10.9074C10.9342 12.0934 9.98104 13.047 8.80669 13.047Z" fill="red"/>
-                        <path d="M38.9773 16.7437H37.245C36.0706 16.7437 35.1174 15.7905 35.1174 14.6162V3.05962C35.1174 1.88528 36.0706 0.932068 37.245 0.932068H38.9773C40.1517 0.932068 41.1049 1.88528 41.1049 3.05962V14.6041C41.1049 15.7897 40.1517 16.743 38.9773 16.743V16.7437ZM37.245 2.09483C36.7103 2.09483 36.2801 2.52509 36.2801 3.05971V14.6041C36.2801 15.1388 36.7104 15.569 37.245 15.569H38.9773C39.512 15.569 39.9422 15.1388 39.9422 14.6041V3.05971C39.9422 2.52507 39.512 2.09483 38.9773 2.09483H37.245Z" fill="red"/>
-                        <path d="M43.8138 13.047H42.0814C40.9071 13.047 39.9539 12.0938 39.9539 10.9195C39.9539 10.5939 40.2097 10.3381 40.5352 10.3381C40.8607 10.3381 41.1166 10.5939 41.1166 10.9195C41.1166 11.4541 41.5468 11.8843 42.0814 11.8843H43.8138C44.3485 11.8843 44.7787 11.4541 44.7787 10.9195V6.75731C44.7787 6.22267 44.3484 5.79243 43.8138 5.79243H42.0814C41.5468 5.79243 41.1166 6.22269 41.1166 6.75731C41.1166 7.08284 40.8607 7.33866 40.5352 7.33866C40.2097 7.33866 39.9539 7.08284 39.9539 6.75731C39.9539 5.58297 40.9071 4.62976 42.0814 4.62976H43.8138C44.9881 4.62976 45.9413 5.58297 45.9413 6.75731V10.9078C45.9413 12.0934 44.9877 13.047 43.8138 13.047Z" fill="red"/>
-                        <path d="M35.698 46.8086H15.1783C14.8527 46.8086 14.5969 46.5528 14.5969 46.2272C14.5969 45.9017 14.8527 45.6459 15.1783 45.6459H35.6868C36.0123 45.6459 36.2681 45.9017 36.2681 46.2272C36.2681 46.5528 36.0123 46.8086 35.6984 46.8086H35.698ZM35.698 42.7391H15.1783C14.8527 42.7391 14.5969 42.4833 14.5969 42.1578C14.5969 41.8322 14.8527 41.5764 15.1783 41.5764H35.6868C36.0123 41.5764 36.2681 41.8322 36.2681 42.1578C36.2681 42.4837 36.0123 42.7391 35.6984 42.7391H35.698Z" fill="red"/>
-                        <path d="M13.6321 52.0983H11.8998C10.7254 52.0983 9.77222 51.1451 9.77222 49.9708V38.4263C9.77222 37.252 10.7254 36.2988 11.8998 36.2988H13.6321C14.8065 36.2988 15.7597 37.252 15.7597 38.4263V49.9708C15.7597 51.1451 14.8065 52.0983 13.6321 52.0983ZM11.8998 37.4494C11.3651 37.4494 10.9349 37.8796 10.9349 38.4143V49.9587C10.9349 50.4933 11.3651 50.9236 11.8998 50.9236H13.6321C14.1668 50.9236 14.597 50.4933 14.597 49.9587V38.4143C14.597 37.8796 14.1668 37.4494 13.6321 37.4494H11.8998Z" fill="red"/>
-                        <path d="M8.80669 48.4015H7.07433C5.89998 48.4015 4.94678 47.4483 4.94678 46.274V42.1235C4.94678 40.9492 5.89998 39.996 7.07433 39.996H8.80669C9.98104 39.996 10.9342 40.9492 10.9342 42.1235C10.9342 42.4491 10.6784 42.7049 10.3529 42.7049C10.0274 42.7049 9.77154 42.4491 9.77154 42.1235C9.77154 41.5889 9.34128 41.1586 8.80666 41.1586H7.07429C6.53965 41.1586 6.1094 41.5889 6.1094 42.1235V46.274C6.1094 46.8086 6.53967 47.2389 7.07429 47.2389H8.80666C9.34129 47.2389 9.77154 46.8086 9.77154 46.274C9.77154 45.9485 10.0274 45.6926 10.3529 45.6926C10.6784 45.6926 10.9342 45.9485 10.9342 46.274C10.9342 47.4483 9.98104 48.4015 8.80669 48.4015Z" fill="red"/>
-                        <path d="M38.9773 52.0983H37.245C36.0706 52.0983 35.1174 51.1451 35.1174 49.9708V38.4263C35.1174 37.252 36.0706 36.2988 37.245 36.2988H38.9773C40.1517 36.2988 41.1049 37.252 41.1049 38.4263V49.9708C41.1049 51.1451 40.1517 52.0983 38.9773 52.0983ZM37.245 37.4494C36.7103 37.4494 36.2801 37.8796 36.2801 38.4143V49.9587C36.2801 50.4933 36.7104 50.9236 37.245 50.9236H38.9773C39.512 50.9236 39.9422 50.4933 39.9422 49.9587V38.4143C39.9422 37.8796 39.512 37.4494 38.9773 37.4494H37.245Z" fill="red"/>
-                        <path d="M43.8138 48.4015H42.0814C40.9071 48.4015 39.9539 47.4483 39.9539 46.274C39.9539 45.9485 40.2097 45.6926 40.5352 45.6926C40.8607 45.6926 41.1166 45.9485 41.1166 46.274C41.1166 46.8086 41.5468 47.2389 42.0814 47.2389H43.8138C44.3485 47.2389 44.7787 46.8086 44.7787 46.274V42.1235C44.7787 41.5889 44.3484 41.1586 43.8138 41.1586H42.0814C41.5468 41.1586 41.1166 41.5889 41.1166 42.1235C41.1166 42.4491 40.8607 42.7049 40.5352 42.7049C40.2097 42.7049 39.9539 42.4491 39.9539 42.1235C39.9539 40.9492 40.9071 39.996 42.0814 39.996H43.8138C44.9881 39.996 45.9413 40.9492 45.9413 42.1235V46.274C45.9413 47.4483 44.9877 48.4015 43.8138 48.4015Z" fill="red"/>
-                        <path d="M38.1402 34.415H36.8498C35.8966 34.415 35.1174 33.6362 35.1174 32.6826V20.3469C35.1174 19.3937 35.8962 18.6145 36.8498 18.6145H38.1402C39.0934 18.6145 39.8725 19.3933 39.8725 20.3469V32.6826C39.8725 33.6362 39.0938 34.415 38.1402 34.415ZM36.8498 19.7773C36.5359 19.7773 36.2801 20.0331 36.2801 20.3469V32.6939C36.2801 33.0077 36.5359 33.2636 36.8498 33.2636H38.1402C38.454 33.2636 38.7098 33.0077 38.7098 32.6939V20.3469C38.7098 20.0331 38.454 19.7773 38.1402 19.7773H36.8498Z" fill="red"/>
-                        <path d="M41.7322 32.1485H40.4418C39.4886 32.1485 38.7095 31.3697 38.7095 30.4161C38.7095 30.0906 38.9653 29.8348 39.2908 29.8348C39.6164 29.8348 39.8722 30.0906 39.8722 30.4161C39.8722 30.73 40.128 30.9858 40.4418 30.9858H41.7322C42.0461 30.9858 42.3019 30.73 42.3019 30.4161V22.6148C42.3019 22.301 42.0461 22.0451 41.7322 22.0451H40.4418C40.128 22.0451 39.8722 22.301 39.8722 22.6148C39.8722 22.9403 39.6164 23.1962 39.2908 23.1962C38.9653 23.1962 38.7095 22.9403 38.7095 22.6148C38.7095 21.6616 39.4882 20.8824 40.4418 20.8824H41.7322C42.6854 20.8824 43.4646 21.6612 43.4646 22.6148V30.4161C43.4646 31.3697 42.6858 32.1485 41.7322 32.1485Z" fill="red"/>
-                        <path d="M45.3245 30.5789H44.0341C43.0809 30.5789 42.3018 29.8001 42.3018 28.8465C42.3018 28.521 42.5576 28.2652 42.8831 28.2652C43.2086 28.2652 43.4645 28.521 43.4645 28.8465C43.4645 29.1604 43.7203 29.4162 44.0341 29.4162H45.3245C45.6384 29.4162 45.8942 29.1604 45.8942 28.8465V24.1845C45.8942 23.8706 45.6384 23.6148 45.3245 23.6148H44.0341C43.7203 23.6148 43.4645 23.8706 43.4645 24.1845C43.4645 24.51 43.2086 24.7658 42.8831 24.7658C42.5576 24.7658 42.3018 24.51 42.3018 24.1845C42.3018 23.2312 43.0805 22.4521 44.0341 22.4521H45.3245C46.2777 22.4521 47.0569 23.2309 47.0569 24.1845V28.8465C47.0569 29.8001 46.2781 30.5789 45.3245 30.5789Z" fill="red"/>
-                        <path d="M49.8125 29.1252H46.4759C46.1504 29.1252 45.8945 28.8694 45.8945 28.5439C45.8945 28.2184 46.1504 27.9625 46.4759 27.9625H49.2312V25.0562H46.4759C46.1504 25.0562 45.8945 24.8004 45.8945 24.4748C45.8945 24.1493 46.1504 23.8935 46.4759 23.8935H49.8125C50.1381 23.8935 50.3939 24.1493 50.3939 24.4748V28.5439C50.3939 28.8695 50.1381 29.1252 49.8125 29.1252Z" fill="red"/>
-                    </svg>                        
-                </div>
-
-                <div class="flex flex-col">
-                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">Equipment</h2>
-                    <p class="text-[14px]">No queues at the simulators. Premium equipment from LifeStyle, Hammer Strength, TechnoGym.</p>
-                </div>
-            </div>
-
-            <div class="text-white flex justify-center items-center p-[20px] border border-[#FF0000] rounded-lg">
-                <div class="p-[10px] lg:m-[30px] md:m-[20px] m-[10px]">
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.01882 43.5695H6.01092C3.60911 43.5695 1.65503 41.6158 1.65503 39.214V25.3085C1.65503 24.8071 2.06131 24.4008 2.56279 24.4008H9.46663C9.96806 24.4008 10.3744 24.807 10.3744 25.3085V39.2148C10.3744 41.6163 8.42064 43.57 6.01884 43.57L6.01882 43.5695ZM3.47052 26.2159V39.2145C3.47052 40.6147 4.61007 41.7543 6.01098 41.7543H6.01888C7.41946 41.7543 8.559 40.6147 8.559 39.2141V26.2164L3.47052 26.2159Z" fill="red"/>
-                        <path d="M8.10329 26.2159H3.92558C3.42415 26.2159 3.01782 25.8097 3.01782 25.3082V22.4941C3.01782 21.4929 3.83204 20.6787 4.83325 20.6787H7.19553C8.19676 20.6787 9.01096 21.4929 9.01096 22.4941V25.3082C9.01096 25.8093 8.60476 26.2159 8.10329 26.2159ZM4.83325 24.4005H7.19553V22.4942H4.83325V24.4005Z" fill="red"/>
-                        <path d="M39.3682 26.2159H35.1905C34.689 26.2159 34.2827 25.8097 34.2827 25.3082V22.4941C34.2827 21.4929 35.0969 20.6787 36.0981 20.6787H38.4604C39.4616 20.6787 40.2758 21.4929 40.2758 22.4941V25.3082C40.2758 25.8093 39.8693 26.2159 39.3682 26.2159ZM36.0981 24.4005H38.4604V22.4942H36.0981V24.4005Z" fill="red"/>
-                        <path d="M37.2838 43.5695H37.2752C34.8734 43.5695 32.9197 41.6158 32.9197 39.214V25.3085C32.9197 24.8071 33.326 24.4008 33.8274 24.4008H40.7313C41.2327 24.4008 41.639 24.807 41.639 25.3085V39.2148C41.639 41.6163 39.6853 43.57 37.2838 43.57L37.2838 43.5695ZM34.7352 26.2159V39.2145C34.7352 40.6147 35.8747 41.7543 37.2753 41.7543H37.2838C38.6844 41.7543 39.824 40.6147 39.824 39.2141L39.8236 26.2164L34.7352 26.2159Z" fill="red"/>
-                        <path d="M11.1215 26.216H0.907758C0.406325 26.216 0 25.8097 0 25.3083C0 24.8068 0.406283 24.4005 0.907758 24.4005H11.1215C11.6229 24.4005 12.0293 24.8068 12.0293 25.3083C12.0293 25.8094 11.623 26.216 11.1215 26.216Z" fill="red"/>
-                        <path d="M42.3865 26.216H32.1736C31.6722 26.216 31.2659 25.8097 31.2659 25.3083C31.2659 24.8068 31.6722 24.4005 32.1736 24.4005H42.3865C42.888 24.4005 43.2943 24.8068 43.2943 25.3083C43.2943 25.8094 42.888 26.216 42.3869 26.216H42.3865Z" fill="red"/>
-                        <path d="M21.9009 31.601C19.2303 31.601 17.0584 29.4289 17.0584 26.7585V6.88311C17.0584 4.08853 14.7846 1.81543 11.9904 1.81543C9.19579 1.81543 6.92269 4.08853 6.92269 6.88311V21.5859C6.92269 22.0873 6.51641 22.4937 6.01494 22.4937C5.51346 22.4937 5.10718 22.0874 5.10718 21.5859V6.88311C5.10718 3.08798 8.19515 0 11.9903 0C15.7858 0 18.8737 3.08798 18.8737 6.88311V26.7585C18.8737 28.4278 20.2318 29.7856 21.9008 29.7856C23.5704 29.7856 24.9285 28.4275 24.9285 26.7585V14.8683C24.9285 11.2128 27.9025 8.23876 31.5581 8.23876C35.2136 8.23876 38.1876 11.2128 38.1876 14.8683L38.1873 21.5862C38.1873 22.0876 37.781 22.4939 37.2795 22.4939C36.7781 22.4939 36.3718 22.0876 36.3718 21.5862V14.8683C36.3718 12.214 34.212 10.0542 31.5576 10.0542C28.9033 10.0542 26.7435 12.214 26.7435 14.8683V26.7585C26.7435 29.429 24.5712 31.6013 21.9007 31.6013L21.9009 31.601Z" fill="red"/>
-                        <path d="M9.46614 34.8931H2.5623C2.06087 34.8931 1.65454 34.4869 1.65454 33.9854C1.65454 33.4839 2.06082 33.0776 2.5623 33.0776H9.46614C9.96757 33.0776 10.3739 33.4839 10.3739 33.9854C10.3739 34.4865 9.96729 34.8931 9.46614 34.8931Z" fill="red"/>
-                        <path d="M9.46614 30.9082H2.5623C2.06087 30.9082 1.65454 30.5019 1.65454 30.0004C1.65454 29.4989 2.06082 29.0927 2.5623 29.0927H9.46614C9.96757 29.0927 10.3739 29.4989 10.3739 30.0004C10.3739 30.5019 9.96729 30.9082 9.46614 30.9082Z" fill="red"/>
-                        <path d="M9.46614 38.8774H2.5623C2.06087 38.8774 1.65454 38.4711 1.65454 37.9696C1.65454 37.4682 2.06082 37.0619 2.5623 37.0619H9.46614C9.96757 37.0619 10.3739 37.4682 10.3739 37.9696C10.3739 38.4711 9.96729 38.8774 9.46614 38.8774Z" fill="red"/>
-                        <path d="M40.732 34.8931H33.8282C33.3267 34.8931 32.9204 34.4869 32.9204 33.9854C32.9204 33.4839 33.3267 33.0776 33.8282 33.0776H40.732C41.2334 33.0776 41.6398 33.4839 41.6398 33.9854C41.6398 34.4865 41.2335 34.8931 40.732 34.8931Z" fill="red"/>
-                        <path d="M40.732 30.9082H33.8282C33.3267 30.9082 32.9204 30.5019 32.9204 30.0004C32.9204 29.4989 33.3267 29.0927 33.8282 29.0927H40.732C41.2334 29.0927 41.6398 29.4989 41.6398 30.0004C41.6398 30.5019 41.2335 30.9082 40.732 30.9082Z" fill="red"/>
-                        <path d="M40.732 38.8774H33.8282C33.3267 38.8774 32.9204 38.4711 32.9204 37.9696C32.9204 37.4682 33.3267 37.0619 33.8282 37.0619H40.732C41.2334 37.0619 41.6398 37.4682 41.6398 37.9696C41.6398 38.4711 41.2335 38.8774 40.732 38.8774Z" fill="red"/>
-                    </svg>                        
-                </div>
-
-                <div class="flex flex-col">
-                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">Fitness Zones</h2>
-                    <p class="text-[14px]">From cardio to functional and cycle. Separate area for boxing and mixed martial arts</p>
-                </div>
-            </div>
-
-            <div class="text-white flex justify-center items-center p-[20px] border border-[#FF0000] rounded-lg">
-                <div class="p-[10px] lg:m-[30px] md:m-[20px] m-[10px]">
-                    <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M48.0117 23.7238C48.0117 29.9728 45.5292 35.966 41.1104 40.3848C36.6916 44.8037 30.6984 47.2859 24.4493 47.2859C18.2002 47.2859 12.2071 44.8038 7.78823 40.3848C3.36941 35.966 0.887207 29.9729 0.887207 23.7238C0.887207 17.4746 3.36932 11.4815 7.78823 7.06267C12.2071 2.64384 18.2002 0.161377 24.4493 0.161377C24.8561 0.161377 25.1855 0.491119 25.1855 0.897903C25.1855 1.30435 24.8561 1.63409 24.4493 1.63409C19.4484 1.63306 14.5957 3.32869 10.6827 6.44325C6.77061 9.55817 4.03061 13.9082 2.91131 18.7819C1.79166 23.6559 2.35865 28.7653 4.51965 33.2753C6.68024 37.7852 10.3071 41.4285 14.8072 43.6101C19.3071 45.7913 24.4144 46.3816 29.2926 45.2842C34.1716 44.1867 38.5343 41.4666 41.6663 37.5686C44.799 33.6705 46.5166 28.8251 46.5382 23.8247C46.5597 18.8238 44.8843 13.9632 41.7858 10.0388L41.592 11.9793C41.5544 12.3556 41.238 12.6422 40.8599 12.6425C40.836 12.6425 40.811 12.6425 40.786 12.6388C40.3812 12.598 40.0861 12.2371 40.1265 11.8327L40.4946 8.1511H40.4949C40.5353 7.74671 40.8959 7.45154 41.3003 7.49161L44.9788 7.85936C45.3836 7.90011 45.6787 8.26101 45.638 8.66574C45.5972 9.07013 45.2363 9.36529 44.8316 9.32454L42.949 9.13656H42.9493C46.2331 13.2893 48.017 18.43 48.0112 23.7245L48.0117 23.7238ZM24.4493 6.06249C29.1332 6.06249 33.6253 7.9232 36.937 11.2353C40.2487 14.5475 42.1099 19.0396 42.1099 23.7231C42.1099 28.4065 40.2492 32.8991 36.937 36.2108C33.6249 39.5225 29.1328 41.3836 24.4493 41.3836C19.7659 41.3836 15.2733 39.5229 11.9616 36.2108C8.64991 32.8986 6.78876 28.4065 6.78876 23.7231C6.7939 19.0406 8.65666 14.5514 11.9674 11.2406C15.2782 7.92977 19.7672 6.06705 24.4499 6.06197L24.4493 6.06249ZM33.4903 13.6435L35.3558 11.7732C32.5655 9.21571 28.9643 7.72141 25.1831 7.55162V10.2026C25.1831 10.6093 24.8534 10.9387 24.4469 10.9387C24.0401 10.9387 23.7104 10.6093 23.7104 10.2026V7.55162C19.9295 7.72146 16.3283 9.21571 13.5377 11.7732L15.408 13.6431C15.6956 13.9307 15.6956 14.3971 15.408 14.6848C15.1204 14.9724 14.654 14.9724 14.3664 14.6848L12.4964 12.8145C9.93894 15.6048 8.44464 19.206 8.27485 22.9872H10.9258C11.3322 22.9872 11.662 23.3166 11.662 23.7234C11.662 24.1301 11.3322 24.4595 10.9258 24.4595H8.27485C8.44468 28.2408 9.93894 31.842 12.4964 34.6322L14.3664 32.7668C14.5037 32.625 14.692 32.5439 14.8896 32.5425C15.0871 32.5408 15.2772 32.6185 15.4165 32.7582C15.5562 32.8979 15.6336 33.0879 15.6319 33.2855C15.6302 33.4827 15.549 33.6714 15.4069 33.8084L13.5377 35.6738C16.3277 38.2313 19.9285 39.726 23.7095 39.8954V37.2448C23.7095 36.838 24.0393 36.5083 24.4457 36.5083C24.8525 36.5083 25.1822 36.838 25.1822 37.2448V39.8954C28.9635 39.7256 32.5643 38.2313 35.3549 35.6738L33.4895 33.8084H33.4898C33.2022 33.5208 33.2022 33.0544 33.4898 32.7667C33.7774 32.4791 34.2438 32.4791 34.5314 32.7667L36.3969 34.6322H36.3965C38.954 31.8419 40.4487 28.2407 40.6181 24.4595H37.9675C37.5608 24.4595 37.2314 24.1301 37.2314 23.7233C37.2314 23.3165 37.5608 22.9871 37.9675 22.9871H40.6181C40.4486 19.2059 38.9544 15.6051 36.3965 12.8153L34.5311 14.6846H34.5314C34.2424 14.9636 33.7833 14.9599 33.4991 14.676C33.2149 14.3921 33.2108 13.933 33.4899 13.6437L33.4903 13.6435ZM29.7444 27.9773V27.9776C30.032 28.2652 30.032 28.7313 29.7444 29.0189C29.4564 29.3065 28.9904 29.3062 28.7027 29.0185L25.382 25.6978C24.8413 25.9536 24.2198 25.9765 23.6617 25.7615C23.1039 25.5465 22.6585 25.1119 22.4297 24.5593C22.201 24.007 22.2088 23.3848 22.4513 22.8379C22.6937 22.2914 23.1498 21.8683 23.7131 21.6673V14.4749C23.7131 14.0681 24.0425 13.7383 24.4493 13.7383C24.8561 13.7383 25.1855 14.0681 25.1855 14.4749V21.6673C25.7662 21.8744 26.2319 22.3179 26.4675 22.8873C26.7034 23.4567 26.6876 24.0994 26.4236 24.6566L29.7444 27.9773ZM24.4493 24.4354C24.7373 24.4354 24.9968 24.2618 25.1068 23.9957C25.217 23.73 25.1561 23.4239 24.9527 23.2201C24.7489 23.0167 24.4428 22.9558 24.1771 23.0661C23.911 23.176 23.7374 23.4355 23.7374 23.7235C23.7381 24.1162 24.0566 24.4347 24.4493 24.4354Z" fill="red"/>
-                    </svg>                        
-                </div>
-                
-                <div class="flex flex-col">
-                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">Round-the-clock operation</h2>
-                    <p class="text-[14px]">The gym is open 24 hours a day, also works on all holidays and weekends</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="adv-join-btn flex lg:justify-end justify-center text-[#C0C0C0] lg:w-[96%] w-full lg:mt-[initial] mt-[30px]">
-            <a href="./register.html" class="border border-[#FF0000] px-2 py-2 rounded-xl">Click to Join Us <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-    </section>
-
-    <section id="membership" class="lg:mb-[100px] mb-[50px]">
-
-        <div class="membership font-bold flex flex-col justify-center items-center">
-            <h1 class="text-[#fff] lg:text-[50px] md:text-[50px] text-[30px] m-[10px]">Gym <span class="text-[#FF0000]">Membership</span></h1>
-            <h3 class="lg:text-[40px] md:text-[40px] text-[20px] text-[#fff] font-thin mb-[30px]">Our Packages</h3>
-        </div>
-
-        <div class="grid lg:grid-cols-3 md:grid-cols-1 grid-cols-1 gap-12 lg:px-[100px] md:px-[120px] px-[30px]">
-
-            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
-
-                <h2 class="text-[#FF0000] mb-[10px]">BASIC PACKAGE</h2>
-
-                <div class="flex flex-col justify-center items-start">
-                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 100, OOO</h3>
+                <!--  Price Info   -->
+                <div class="flex flex-col items-start">
+                    <h3 class="lg:text-[32px] md:text-[30px] text-[28px] font-bold">RWF 100,000</h3>
                     <span class="font-thin mb-[10px]">per month</span>
                 </div>
 
-                <div class="flex flex-col justify-center items-start">
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>2x Fitness Consultant</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>1x Free Suplement</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>3 Days per week</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
-                </div>
-                <a href="./register.html" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+                <!-- Package Features -->
+                <ul class="list-none space-y-3 mt-[20px]">
+                    <li><i class="fa-solid fa-dumbbell text-red-600 mr-[10px]"></i>Unlimited Gym Access</li>
+                    <li><i class="fa-solid fa-user-tie text-red-600 mr-[10px]"></i>2x Fitness Consultant</li>
+                    <li><i class="fa-solid fa-apple-alt text-red-600 mr-[10px]"></i>Nutrition Tracking</li>
+                    <li><i class="fa-solid fa-gift text-red-600 mr-[10px]"></i>1x Free Supplement</li>
+                    <li><i class="fa-solid fa-calendar-alt text-red-600 mr-[10px]"></i>3 Days per Week</li>
+                    <li><i class="fa-solid fa-user text-red-600 mr-[10px]"></i>Personal Trainer</li>
+                </ul>
+
+                <!-- Call to Action Button -->
+                <a href="./register.html"
+                    class="mt-[30px] w-full bg-red-600 hover:bg-white text-black hover:text-red-600 font-bold py-[10px] rounded-[15px] text-center transition-all duration-300 ease-in-out">
+                    Register Now
+                </a>
+
+                <!-- Decorative Overlay Effect -->
+                <div class="absolute inset-0 opacity-20 bg-red-600 rounded-[20px] blur-xl -z-10"></div>
             </div>
 
-            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
+            <!-- MID PACKAGE -->
+            <div
+                class="relative flex flex-col items-center text-white bg-black to-black p-[25px] rounded-[20px] shadow-lg transition-all duration-300 hover:scale-105">
+                <h2 class="text-red-600 mb-[15px] text-[28px] uppercase">Mid Package</h2>
 
-                <h2 class="text-[#FF0000] mb-[10px]">MID PACKAGE</h2>
-
-                <div class="flex flex-col justify-center items-start">
-                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 275, OOO</h3>
+                <!-- Price Info -->
+                <div class="flex flex-col items-start">
+                    <h3 class="lg:text-[32px] md:text-[30px] text-[28px] font-bold">RWF 275,000</h3>
                     <span class="font-thin mb-[10px]">per 3 months</span>
                 </div>
 
-                <div class="flex flex-col justify-center items-start">
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>4x Fitness Consultant</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>3x Free Suplement</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>5 Days per week</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
-                </div>
-                <a href="./register.html" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+                <!-- Package Features -->
+                <ul class="list-none space-y-3 mt-[20px]">
+                    <li><i class="fa-solid fa-dumbbell text-red-600 mr-[10px]"></i>Unlimited Gym Access</li>
+                    <li><i class="fa-solid fa-user-tie text-red-600 mr-[10px]"></i>4x Fitness Consultant</li>
+                    <li><i class="fa-solid fa-apple-alt text-red-600 mr-[10px]"></i>Nutrition Tracking</li>
+                    <li><i class="fa-solid fa-gift text-red-600 mr-[10px]"></i>3x Free Supplement</li>
+                    <li><i class="fa-solid fa-calendar-alt text-red-600 mr-[10px]"></i>5 Days per Week</li>
+                    <li><i class="fa-solid fa-user text-red-600 mr-[10px]"></i>Personal Trainer</li>
+                </ul>
+
+                <!-- Call to Action Button -->
+                <a href="./register.html"
+                    class="mt-[30px] w-full bg-red-600 hover:bg-white text-black hover:text-red-600 font-bold py-[10px] rounded-[15px] text-center transition-all duration-300 ease-in-out">
+                    Register Now
+                </a>
+
+                <!-- Decorative Overlay Effect -->
+                <div class="absolute inset-0 opacity-20 bg-red-600 rounded-[20px] blur-xl -z-10"></div>
             </div>
 
-            <div class="flex flex-col lg:justify-center items-center w-[100%] text-[#fff] bg-[#0D0D0D] p-[20px] rounded-[20px]">
+            <!-- PRO PACKAGE -->
+            <div
+                class="relative flex flex-col items-center text-white bg-black to-black p-[25px] rounded-[20px] shadow-lg transition-all duration-300 hover:scale-105">
+                <h2 class="text-red-600 mb-[15px] text-[28px] uppercase">Pro Package</h2>
 
-                <h2 class="text-[#FF0000] mb-[10px]">PRO PACKAGE</h2>
-
-                <div class="flex flex-col justify-center items-start">
-                    <h3 class="lg:text-[30px] md:text-[30px] text-[30px] font-bold">RWF 500, OOO</h3>
+                <!-- Price Info -->
+                <div class="flex flex-col items-start">
+                    <h3 class="lg:text-[32px] md:text-[30px] text-[28px] font-bold">RWF 500,000</h3>
                     <span class="font-thin mb-[10px]">per 6 months</span>
                 </div>
 
-                <div class="flex flex-col justify-center items-start">
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Unlimited Gym Access</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>7x Fitness Consultant</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Nutrition Tracking</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>5x Free Suplement</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Gym Card</p>
-                    <p><i class="fa-regular fa-circle-check text-[#FF0000] mr-[10px]"></i>Personal Trainer</p>
-                </div>
-                <a href="./register.html" class="w-[100%] mt-[30px] bg-[#FF0000] hover:bg-black px-[20px] py-[10px] rounded-[15px] text-[#000] hover:text-[#FF0000] font-bold text-center">Register Now</a>
+                <!-- Package Features -->
+                <ul class="list-none space-y-3 mt-[20px]">
+                    <li><i class="fa-solid fa-dumbbell text-red-600 mr-[10px]"></i>Unlimited Gym Access</li>
+                    <li><i class="fa-solid fa-user-tie text-red-600 mr-[10px]"></i>7x Fitness Consultant</li>
+                    <li><i class="fa-solid fa-apple-alt text-red-600 mr-[10px]"></i>Nutrition Tracking</li>
+                    <li><i class="fa-solid fa-gift text-red-600 mr-[10px]"></i>5x Free Supplement</li>
+                    <li><i class="fa-solid fa-id-card text-red-600 mr-[10px]"></i>Gym Card</li>
+                    <li><i class="fa-solid fa-user text-red-600 mr-[10px]"></i>Personal Trainer</li>
+                </ul>
+
+                <!-- Call to Action Button -->
+                <a href="./register.html"
+                    class="mt-[30px] w-full bg-red-600 hover:bg-white text-black hover:text-red-600 font-bold py-[10px] rounded-[15px] text-center transition-all duration-300 ease-in-out">
+                    Register Now
+                </a>
+
+                <!-- Decorative Overlay Effect -->
+                <div class="absolute inset-0 opacity-20 bg-red-600 rounded-[20px] blur-xl -z-10"></div>
             </div>
-
         </div>
-
     </section>
 
-    <section id="about" class="text-white">
+
+    <!-- <section id="about" class="text-white">
 
         <div class="flex lg:flex-row md:flex-row flex-col-reverse justify-center items-center lg:p-[50px] p-[20px]">
 
@@ -271,14 +412,17 @@
                 </div>
 
                 <div class="text-[18px] text-[#C0C0C0] font-thin lg:p-[20px]">
-                    <p class="mb-[30px]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti recusandae atque omnis aliquid facilis dignissimos</p>
+                    <p class="mb-[30px]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti recusandae
+                        atque omnis aliquid facilis dignissimos</p>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum odit beatae, ratione odio nostrum earum recusandae ipsum eum quam explicabo quae.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum odit beatae, ratione odio
+                        nostrum earum recusandae ipsum eum quam explicabo quae.</p>
                 </div>
 
             </div>
 
-            <div class="flex justify-center items-center lg:w-[40%] w-[90%] lg:border-none border-[4px] border-[#FF0000] rounded-[20px]">
+            <div
+                class="flex justify-center items-center lg:w-[40%] w-[90%] lg:border-none border-[4px] border-[#FF0000] rounded-[20px]">
                 <video id="aboutVid" class="lg:w-[60%] w-[70%] h-[60%] rounded-lg" type="video/mp4" controls>
                     <source src="./Project-Files/About-Vid.mp4">
                 </video>
@@ -289,255 +433,313 @@
         <div>
 
             <div class="flex justify-center mb-[20px] pb-[50px] lg:mt-0 mt-[40px]">
-                <button class="btn lg:w-[15%] w-[70%] px-[25px] py-[10px] text-[20px] text-[#FF0000] border border-[#FF0000] rounded-md font-bold" onclick="my_modal_1.showModal()">More Details</button>
+                <button
+                    class="btn lg:w-[15%] w-[70%] px-[25px] py-[10px] text-[20px] text-[#FF0000] border border-[#FF0000] rounded-md font-bold"
+                    onclick="my_modal_1.showModal()">More Details</button>
             </div>
 
 
             <dialog id="my_modal_1" class="modal lg:w-[50%] w-[90%] lg:mx-[400px] bg-[#0D0D0D] text-white">
 
-            <div class="modal-box lg:p-[25px] p-[10px]">
+                <div class="modal-box lg:p-[25px] p-[10px]">
 
-                <div class="flex justify-between">
-                    <h2 class="text-[30px] text-[#FF0000] font-bold">ABOUT US</h2>
-                    <form method="dialog">
-                        <button class="btn text-[25px] text-[#FF0000]"><i class="fa-regular fa-circle-xmark"></i></button>
-                    </form>
+                    <div class="flex justify-between">
+                        <h2 class="text-[30px] text-[#FF0000] font-bold">ABOUT US</h2>
+                        <form method="dialog">
+                            <button class="btn text-[25px] text-[#FF0000]"><i
+                                    class="fa-regular fa-circle-xmark"></i></button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <p class="py-4 text-[18px] text-[#C0C0C0]">Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit. Voluptatum exercitationem eum aperiam reiciendis perferendis esse vel quae eaque, rem
+                            quam culpa eius quod inventore illo?</p>
+
+                        <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Gym Images</h3>
+
+                        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
+
+                            <img src="./Project-Files/SG-Gallery-1.jpg">
+                            <img src="./Project-Files/SG-Gallery-2.jpg">
+                            <img src="./Project-Files/SG-Gallery-3.jpg">
+                            <img src="./Project-Files/SG-Gallery-4.jpg">
+                            <img src="./Project-Files/SG-Gallery-5.jpg">
+                            <img src="./Project-Files/SG-Gallery-6.jpg">
+
+                        </div>
+
+                        <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Our Gym In Numbers</h3>
+
+                        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-y-10 gap-x-2">
+
+                            <div class="flex justify-center items-center gap-4 lg:w-[50%]">
+                                <div>
+                                    <i class="fa-regular fa-calendar-check text-[#C0C0C0] text-[30px]"></i>
+                                </div>
+
+                                <div class="flex flex-col items-start">
+                                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">20+</h2>
+                                    <p class="text-[#C0C0C0] text-[14px]">Years Of Experience</p>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center items-center gap-4 lg:w-[50%]">
+                                <div>
+                                    <i class="fa-regular fa-clock text-[#C0C0C0] text-[30px]"></i>
+                                </div>
+
+                                <div class="flex flex-col items-start">
+                                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">24hr</h2>
+                                    <p class="text-[#C0C0C0] text-[14px]">24/7 Service</p>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center items-center gap-4 lg:w-[60%] ml-[-10px]">
+                                <div>
+                                    <i class="fa-solid fa-people-group text-[#C0C0C0] text-[25px]"></i>
+                                </div>
+
+                                <div class="flex flex-col items-start">
+                                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">15K+</h2>
+                                    <p class="text-[#C0C0C0] text-[14px]">Members Registered</p>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center items-center gap-4 lg:w-[50%] ml-3">
+                                <div>
+                                    <i class="fa-solid fa-face-smile text-[#C0C0C0] text-[30px]"></i>
+                                </div>
+
+                                <div class="flex flex-col items-start">
+                                    <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">14k+</h2>
+                                    <p class="text-[#C0C0C0] text-[14px]">Happy Members</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Join Us</h3>
+                        <h4>Contact us Or Click the Button below to Join</h4>
+
+                        <div class="flex justify-between mb-[40px]">
+
+                            <div class="flex mt-[20px] text-[20px] md:text-[30px]">
+                                <a href="https://wa.me/250780056819"
+                                    class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                        class="fa-brands fa-whatsapp"></i></a>
+                                <a href="https://www.instagram.com/thesilvagym/#"
+                                    class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                        class="fa-brands fa-instagram"></i></a>
+                                <a href="mailto:thesilvagymrw@gmail.com"
+                                    class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                        class="fa-regular fa-envelope"></i></a>
+                            </div>
+
+                            <div class="mt-[30px]">
+                                <form method="dialog">
+                                    <a href="./register.html"
+                                        class="border border-[#FF0000] text-[#C0C0C0] px-[20px] py-[10px] font-bold rounded-lg">Join
+                                        Now</a>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
-
-                <div>
-                    <p class="py-4 text-[18px] text-[#C0C0C0]">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum exercitationem eum aperiam reiciendis perferendis esse vel quae eaque, rem quam culpa eius quod inventore illo?</p>
-
-                    <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Gym Images</h3>
-
-                    <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
-
-                        <img src="./Project-Files/SG-Gallery-1.jpg">
-                        <img src="./Project-Files/SG-Gallery-2.jpg">
-                        <img src="./Project-Files/SG-Gallery-3.jpg">
-                        <img src="./Project-Files/SG-Gallery-4.jpg">
-                        <img src="./Project-Files/SG-Gallery-5.jpg">
-                        <img src="./Project-Files/SG-Gallery-6.jpg">
-
-                    </div>
-
-                    <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Our Gym In Numbers</h3>
-
-                    <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-y-10 gap-x-2">
-
-                        <div class="flex justify-center items-center gap-4 lg:w-[50%]">
-                            <div>
-                                <i class="fa-regular fa-calendar-check text-[#C0C0C0] text-[30px]"></i>
-                            </div>
-
-                            <div class="flex flex-col items-start">
-                                <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">20+</h2>
-                                <p class="text-[#C0C0C0] text-[14px]">Years Of Experience</p>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-center items-center gap-4 lg:w-[50%]">
-                            <div>
-                                <i class="fa-regular fa-clock text-[#C0C0C0] text-[30px]"></i>
-                            </div>
-
-                            <div class="flex flex-col items-start">
-                                <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">24hr</h2>
-                                <p class="text-[#C0C0C0] text-[14px]">24/7 Service</p>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-center items-center gap-4 lg:w-[60%] ml-[-10px]">
-                            <div>
-                                <i class="fa-solid fa-people-group text-[#C0C0C0] text-[25px]"></i>
-                            </div>
-
-                            <div class="flex flex-col items-start">
-                                <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">15K+</h2>
-                                <p class="text-[#C0C0C0] text-[14px]">Members Registered</p>
-                            </div>
-                        </div>
-
-                        <div class="flex justify-center items-center gap-4 lg:w-[50%] ml-3">
-                            <div>
-                                <i class="fa-solid fa-face-smile text-[#C0C0C0] text-[30px]"></i>
-                            </div>
-
-                            <div class="flex flex-col items-start">
-                                <h2 class="text-[#FF0000] lg:text-[20px] md:text-[18px] text-[17px] mb-3">14k+</h2>
-                                <p class="text-[#C0C0C0] text-[14px]">Happy Members</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <h3 class="py-6 text-[25px] text-[#FF0000] font-bold">Join Us</h3>
-                    <h4>Contact us Or Click the Button below to Join</h4>
-
-                    <div class="flex justify-between mb-[40px]">
-
-                        <div class="flex mt-[20px] text-[20px] md:text-[30px]">
-                            <a href="https://wa.me/250780056819" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="https://www.instagram.com/thesilvagym/#" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="mailto:thesilvagymrw@gmail.com" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-regular fa-envelope"></i></a>
-                        </div>
-
-                        <div class="mt-[30px]">
-                            <form method="dialog">
-                            <a href="./register.html" class="border border-[#FF0000] text-[#C0C0C0] px-[20px] py-[10px] font-bold rounded-lg">Join Now</a>
-                            </form>
-                        </div>
-                    
-                    </div>
-
-                </div>
-
-            </div>
 
             </dialog>
 
         </div>
 
+    </section> -->
+    <!-- Call-to-Action Section -->
+    <section id="cta"
+        class="relative w-full h-screen flex items-center justify-center bg-gradient-to-br from-black to-gray-800 overflow-hidden">
+        <!-- Background Video -->
+        <video autoplay muted loop class="absolute inset-0 w-full h-full object-cover opacity-60">
+            <source src="./Project-Files/gym-vd.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay with Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30"></div>
+
+        <!-- CTA Content -->
+        <div class="relative z-10 text-center text-white px-6 md:px-12 flex flex-col items-center">
+            <h1 class="call-to-action text-4xl md:text-5xl font-extrabold mb-4">Transform Your Fitness Journey at Silva
+                Gym</h1>
+            <p class="text-lg md:text-xl mb-6 lg:w-[60%] md:w-[80%] w-full">Experience cutting-edge training and
+                personalized coaching at Silva Gym. Elevate your fitness with our expert trainers and modern facilities.
+            </p>
+            <a href="./register.html"
+                class="inline-block px-8 py-4 bg-red-600 hover:bg-red-700 text-white text-lg font-semibold rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300 ease-in-out">Join
+                Us Now</a>
+        </div>
     </section>
 
-    <section id="team">
 
-        <div class="team flex flex-col justify-center items-center lg:text-[50px] md:text-[50px] text-[30px] font-bold">
-            <h1 class="text-[#fff]">Our Professional</h1>
-            <span class="text-[#FF0000] mb-[30px]">Trainers</span>
+
+    <!-- Trainers Section -->
+    <section id="team" class="bg-white py-12">
+        <div class="text-center mb-12">
+            <h2 class="call-to-action lg:text-6xl text-3xl font-bold text-gray-800">Our Professional Trainers</h2>
+            <p class="text-red-500 mt-2 font-bold">Meet the experts who are here to guide you!</p>
         </div>
 
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 lg:px-[100px] md:px-[100px] px-[30px] mb-20"> 
-
-            <div class="trainer-1 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer1-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.9)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>BASILE</h2>
-                    <a href="tel:0784519587">0784519587</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250784519587" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/b_trainer12/#" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:hatungabafi@gmail.com" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.facebook.com/116718491489045" class="m-[10px]"><i class="fa-brands fa-facebook-f hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
+        <div class="container mx-auto grid lg:grid-cols-2   grid-cols-1 w-[90%] ">
+            <!-- Trainer 1 -->
+            <div
+                class="col-span-1 relative group flex lg:flex-row md:flex-row flex-col-reverse items-center bg-white shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="p-6 lg:w-1/2 md:w-1/2 w-full">
+                    <span class="text-red-500 text-sm">Yoga</span>
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-2">Alex Martin</h3>
+                    <p class="text-gray-600 mt-2">Experience Body Building like never before with the original LES MILLS
+                        barbell class. Sculpt, tone, and strengthen your entire body quickly with innovative,
+                        high-intensity training that maximizes your workout efficiency. Push your boundaries and achieve
+                        remarkable results with our cutting-edge techniques!</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-pinterest"></i></a>
                     </div>
-
                 </div>
-
-            </div>
-
-            <div class="trainer-2 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer2-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.9)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>SAM</h2>
-                    <a href="tel:0785228642">0785228642</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250785228642" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/sam_strong_250/#" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:nshimiyumuremyisamuel5@gmail.com" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.facebook.com/nshimyumuremyi.samuel" class="m-[10px]"><i class="fa-brands fa-facebook-f hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
+                <div class="lg:w-1/2 md:w-1/2 w-full relative overflow-hidden">
+                    <img src="./Project-Files/coach1.jpg" alt="Trainer 1"
+                        class="w-full h-[60vh] object-cover transition-transform duration-300 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#"
+                            class="text-white lg:text-xl text-xl font-semibold bg-red-500 px-4 py-2 rounded">Book Coach
+                            Alex</a>
                     </div>
-
                 </div>
-
             </div>
 
-            <div class="trainer-3 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer3-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.9)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>MANU</h2>
-                    <a href="tel:0788307693">0788307693</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250788307693" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/manu.capo/#" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.facebook.com/ngiremmemmanuel?mibextid=ZbWKwL" class="m-[10px]"><i class="fa-brands fa-facebook-f hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
+            <!-- Trainer 2 -->
+            <div
+                class="col-span-1 relative group flex lg:flex-row md:flex-row-reverse flex-col-reverse items-center bg-white shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="p-6 lg:w-1/2 md:w-1/2 w-full">
+                    <span class="text-red-500 text-sm">Yoga</span>
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-2">Jordan Lee</h3>
+                    <p class="text-gray-600 mt-2">Unlock your potential with Body Building, the original LES MILLS
+                        barbell class. Our expertly designed program combines innovative techniques with dynamic
+                        movements to sculpt, tone, and strengthen your body efficiently. Embrace the challenge and see
+                        transformative results in less time!</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-pinterest"></i></a>
                     </div>
-
                 </div>
-
-            </div>
-
-            <div class="trainer-4 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer4-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.9)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>JIMMY</h2>
-                    <a href="tel:0784541544">0784541544</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250784541544" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/jimmyntare/" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:ntarefitness@gmail.con" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="trainer-5 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer5-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.9)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>MANZI JOHNSON</h2>
-                    <a href="tel:0785355598">0785355598</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250785355598" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/manzijohnson/#" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:manzijohnson98@gmail.com" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.facebook.com/manzijohnson?mibextid=ZbWKwL" class="m-[10px]"><i class="fa-brands fa-facebook-f hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
+                <div class="lg:w-1/2 md:w-1/2 w-full relative overflow-hidden">
+                    <img src="./Project-Files/coach2.jpg" alt="Trainer 2"
+                        class="w-full h-[60vh] object-cover transition-transform duration-300 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#"
+                            class="text-white lg:text-xl text-lg font-semibold bg-red-500 px-4 py-2 rounded">Book Coach
+                            Lee</a>
                     </div>
-
                 </div>
-
             </div>
 
-            <div class="trainer-6 flex justify-center items-end text-[#fff] rounded-[20px] lg:h-[90vh] md:h-[90vh] h-[90vh] shadow-xl shadow-[red] mb-[20px]">
-
-                <div class="trainer6-details w-full flex flex-col justify-start items-center gap-4 py-[10px] rounded-[20px] bg-[rgba(0,0,0,0.5)] hover:bg-[rgba(0,0,0,0.7)] hover:text-[#FF0000] font-bold text-[25px] transition ease-linear duration-500">
-
-                    <h2>Ryva</h2>
-                    <a href="tel:0789944990">0789944990</a>
-
-                    <div class="flex justify-center items-center px-[20px] text-[30px]">
-                        <a href="https://wa.me/250789944990" class="m-[10px]"><i class="fa-brands fa-whatsapp hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.instagram.com/adamryva/#" class="m-[10px]"><i class="fa-brands fa-instagram hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="mailto:ryvaadams@gmail.com" class="m-[10px]"><i class="fa-solid fa-envelope hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
-                        <a href="https://www.facebook.com/ryva.adams?mibextid=ZbWKwL" class="m-[10px]"><i class="fa-brands fa-facebook-f hover:text-[#C0C0C0] transition ease-linear duration-500"></i></a>
+            <!-- Trainer 3 -->
+            <div
+                class="col-span-1 relative group flex lg:flex-row md:flex-row-reverse flex-col items-center bg-white shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="lg:w-1/2 md:w-1/2 w-full relative overflow-hidden">
+                    <img src="./Project-Files/coach3.jpg" alt="Trainer 3"
+                        class="w-full h-[60vh] object-cover transition-transform duration-300 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#"
+                            class="text-white lg:text-xl text-lg font-semibold bg-red-500 px-4 py-2 rounded">Book Coach
+                            Smith</a>
                     </div>
-
                 </div>
-
+                <div class="p-6 lg:w-1/2 md:w-1/2 w-full">
+                    <span class="text-red-500 text-sm">Yoga</span>
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-2">Taylor Smith</h3>
+                    <p class="text-gray-600 mt-2">Revitalize your fitness journey with Body Building, the LES MILLS
+                        barbell class that’s redefining workouts. Our program integrates cutting-edge methods to
+                        effectively sculpt, tone, and strengthen your body. Embrace the energy and see noticeable
+                        results in record time!</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
             </div>
 
+            <!-- Trainer 4 -->
+            <div
+                class="col-span-1 relative group flex flex-col md:flex-row items-center bg-white shadow-lg hover:shadow-2xl transition duration-300">
+                <div class="lg:w-1/2 md:w-1/2 w-full relative overflow-hidden">
+                    <img src="./Project-Files/coach4.jpg" alt="Trainer 4"
+                        class="w-full h-[60vh] object-cover transition-transform duration-300 group-hover:scale-110" />
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <a href="#"
+                            class="text-white lg:text-xl text-lg font-semibold bg-red-500 px-4 py-2 rounded">Book Coach
+                            Davis</a>
+                    </div>
+                </div>
+                <div class="p-6 lg:w-1/2 md:w-1/2 w-full">
+                    <span class="text-red-500 text-sm">Yoga</span>
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-2">Morgan Davis</h3>
+                    <p class="text-gray-600 mt-2">Step into a new era of fitness with Body Building, the pioneering LES
+                        MILLS barbell class. Our advanced techniques are designed to sculpt, tone, and strengthen your
+                        entire body swiftly and effectively. Challenge yourself and experience exceptional results in a
+                        shorter time frame!</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-500 hover:text-red-500"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </section>
+
+
+
+
+
+
+
+
 
     <footer class="bg-[#0D0D0D]">
 
         <div class="flex lg:flex-row md:flex-row flex-col lg:justify-evenly lg:p-[15px] text-[#C0C0C0]">
 
-            <div class="flex lg:flex-row md:flex-row flex-col items-center lg:w-[55vw] md:w-[50vw] w-[100vw] lg:p-[15px]">
+            <div
+                class="flex lg:flex-row md:flex-row flex-col items-center lg:w-[55vw] md:w-[50vw] w-[100vw] lg:p-[15px]">
 
                 <div class="flex justify-center items-center lg:w-[20vw] md:w-[25vw] w-[100vw] p-[15px]">
-                    <img src="./Project-Files/Silva-Gym-logo.png" class="w-[250px] h-[200px] md:h-[160px]">
+                    <img src="./Project-Files/Silva-Gym-logo.png" class="">
                 </div>
 
-                <div class="flex flex-col justify-center items-start lg:w-[30vw] md:w-[25vw] w-[70vw] p-[15px]">
+                <div class="flex flex-col justify-center items-start lg:w-[30vw] md:w-[25vw] w-[90vw] p-[15px]">
                     <h2 class="text-[#FF0000] font-bold my-[20px] lg:text-[30px] text-[20px]">SILVAGYM</h2>
-                    <p class="text-[16px] md:text-[14px]">Build strength and confidence at our gym with state-of-the-art equipment, personalized training, and a motivating community</p>
+                    <p class="text-[16px] md:text-[14px]">Build strength, confidence, and resilience at our Silva gym
+                        with state-of-the-art equipment, personalized training programs tailored to your needs, and a
+                        motivating community that supports you every step of the way.</p>
                 </div>
 
             </div>
 
-            <div class="flex lg:flex-row flex-col lg:justify-evenly items-center lg:w-[45vw] md:w-[50vw] w-[100vw] lg:p-[15px] py-[15px] px-[25px] lg:border-l-[3px] border-[gray]">
+            <div
+                class="flex flex-row  lg:justify-evenly items-center lg:w-[45vw] md:w-[50vw] w-[100vw] lg:p-[15px] py-[15px] px-[25px]">
 
-                <div class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] lg:border-r-[2px] border-[gray]">
+                <div class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] ">
 
                     <h2 class="text-[#FF0000] lg:text-[20px] font-bold py-[20px]">SITEMAP</h2>
 
@@ -545,26 +747,40 @@
                         <li><a href="#home" class="lg:text-[18px] hover:font-[600]">Home</a></li>
                         <li><a href="#advantages" class="lg:text-[18px] hover:font-[600]">Advantages</a></li>
                         <li><a href="#membership" class="lg:text-[18px] hover:font-[600]">Membership</a></li>
-                        <li><a href="#about" class="lg:text-[18px] hover:font-[600]">About Us</a></li>
+                        <li><a href="#about-us" class="lg:text-[18px] hover:font-[600]">About Us</a></li>
                         <li><a href="#team" class="lg:text-[18px] hover:font-[600]">Team</a></li>
+                        <li><a href="./contact.html" class="lg:text-[18px] hover:font-[600]">Contact</a></li>
                     </ul>
 
                 </div>
 
-                <div class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] lg:px-[15px] px-[5px]">
+                <div
+                    class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] lg:px-[15px] px-[5px]">
 
                     <h2 class="text-[#FF0000] font-bold py-[20px] lg:text-[20px]">CONTACT</h2>
 
                     <ul class="flex flex-col gap-2 lg:text-[15px] text-[13px]">
-                        <li><p><i class="fa-solid fa-phone-volume lg:mx-[10px] mx-[5px]"></i>0780056819</p></li>
-                        <li><p><i class="fa-regular fa-envelope lg:mx-[10px] mx-[5px]"></i>thesilvagymrw@gmail.com</p></li>
-                        <li><p><i class="fa-solid fa-location-dot lg:mx-[10px] mx-[5px]"></i>KABC Building, Kigali</p></li>
-                    </ul> 
+                        <li>
+                            <p><i class="fa-solid fa-phone-volume lg:mx-[10px] mx-[5px]"></i>0780056819</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-regular fa-envelope lg:mx-[10px] mx-[5px]"></i>thesilvagymrw@gmail.com</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-location-dot lg:mx-[10px] mx-[5px]"></i>KABC Building, Kigali</p>
+                        </li>
+                    </ul>
 
                     <div class="flex mt-[20px] text-[20px] md:text-[30px]">
-                        <a href="https://wa.me/250780056819" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://www.instagram.com/thesilvagym/#" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="mailto:thesilvagymrw@gmail.com" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i class="fa-regular fa-envelope"></i></a>                    </div>
+                        <a href="https://wa.me/250780056819" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/thesilvagym/#"
+                            class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:thesilvagymrw@gmail.com"
+                            class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-regular fa-envelope"></i></a>
+                    </div>
 
                 </div>
 
@@ -577,6 +793,7 @@
         </div>
 
     </footer>
-    
-</body>   
+    <script src="./index.js"></script>
+</body>
+
 </html>

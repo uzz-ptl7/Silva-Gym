@@ -1,6 +1,11 @@
 
+*{
+    padding:0px;
+    margin: 0px;
+}
 #home {
     background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.85)), url("./Project-Files/Home-bg.jpg");
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -11,12 +16,28 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+#membership,.contact-upper-section{
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.79), rgba(3, 1, 1, 0.95)), url("./Project-Files/Home-bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.contact-upper-section{
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Register.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-.home-section-1-heading, 
+}
+
+
+.home-section-1-heading,.call-to-action, 
 .advantages h1, 
 .membership h1, 
 .team h1, 
-.team span {
+.team span,.push{
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -59,21 +80,7 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-.register-bg {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url("./Project-Files/Register.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
-.register-info {
-    background-color: #0D0D0D;
-    color: #FF0000;
-    border: none;
-    border-radius: 30px;
-    box-shadow: .5px 1px 2px 4px #303030;
-    transition: .5s ease-in-out;
-}
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -81,3 +88,4 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 20px #202020 !important;
     -webkit-text-fill-color: #000 !important;
 }
+
