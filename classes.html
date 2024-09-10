@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Silva-Gym</title>
+  </head>
+
+  <body class="bg-black">
+    <header class="lg:sticky top-0 bg-black bg-opacity-90 shadow-lg z-50">
+        <div
+            class="header flex flex-wrap lg:flex-nowrap items-center justify-between border-b border-gray-300 px-6 py-4">
+
+            <!-- Logo Section -->
+            <div class="header-logo flex flex-wrap items-center lg:w-1/3 w-full justify-between lg:justify-start">
+                <div class="flex items-center">
+                    <img src="./Project-Files/Silva-Gym-logo.png" alt="Silva Gym Logo" width="80" height="80"
+                        class="transition-transform duration-300 hover:scale-110">
+                    <h1 class="text-white lg:text-4xl text-2xl font-extrabold ml-4">SILVA<span
+                            class="text-red-600">GYM</span></h1>
+                </div>
+
+                <!-- Hamburger Menu Icon for Mobile -->
+                <button id="menu-btn" class="block lg:hidden text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation Section (hidden on small screens, toggled by the hamburger icon) -->
+            <nav id="menu" class="navbar lg:w-2/3 w-full hidden lg:flex justify-center lg:justify-end mt-4 lg:mt-0 ">
+                <ul class="flex lg:gap-12 gap-6 text-white text-lg">
+                    <li><a href="#home"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Home</a>
+                    </li>
+                    <li><a href="#about-us"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">About
+                            Us</a></li>
+                    <li><a href="#Advantages"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Advantages</a>
+                    </li>
+                    <li><a href="#membership"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Membership</a>
+                    </li>
+
+                    <li><a href="#team"
+                            class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Team</a>
+                    </li>
+                    <li><a href="./classes.html"
+                        class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Classes</a>
+                </li>
+                <li><a href="./register.html"
+                    class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Register</a>
+            </li>
+                    <li><a href="./contact.html"
+                        class="hover:text-red-600 transition duration-300 border-b-2 border-transparent hover:border-red-600 pb-2">Contact</a>
+                </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu (Initially hidden, will appear when the hamburger icon is clicked) -->
+        <div id="mobile-menu-container" class="fixed inset-0 z-40 bg-black bg-opacity-60 hidden">
+            <!-- Slide-in Mobile Menu -->
+            <nav id="mobile-menu"
+                class="lg:hidden bg-black bg-opacity-95 w-64 fixed right-0 top-0 h-full transform translate-x-full transition-transform duration-300">
+                <div class="flex justify-end p-4">
+                    <!-- Close Icon -->
+                    <button id="close-menu-btn" class="text-white text-3xl focus:outline-none">
+                        &times;
+                    </button>
+                </div>
+                <ul class="flex flex-col items-start gap-4 text-white text-lg px-6 py-4">
+                    <li><a href="#home" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 100ms;">Home</a></li>
+                    <li><a href="#about-us" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 400ms;">About Us</a></li>
+                    <li><a href="#Advantages" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 200ms;">Advantages</a></li>
+                    <li><a href="#membership" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                            style="transition-delay: 300ms;">Membership</a></li>
+
+                    
+                            <li><a href="#team" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                                style="transition-delay: 500ms;">Team</a></li>
+                                <li><a href="./classes.html" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                                    style="transition-delay: 500ms;">Classes</a></li>
+                                    <li><a href="./register.html" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                                        style="transition-delay: 500ms;">Register</a></li>
+                            <li><a href="./contact.html" class="hover:text-red-600 transition duration-300 opacity-0 translate-x-4"
+                                style="transition-delay: 500ms;">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex flex-col mt-5 lg:gap-4 gap-0 container mx-auto">
+      <!-- Upper Section: Contact Header & Breadcrumbs -->
+      <section class="contact-upper-section py-6">
+        <div
+          class="flex flex-col lg:flex-row py-[80px] px-[30px] md:px-[50px] gap-8 relative z-[1]"
+        >
+          <!-- Left Content: Text and CTA -->
+          <div
+            class="contact-content flex flex-col gap-8 lg:w-1/2 w-full lg:justify-center justify-start lg:items-start items-center"
+          >
+            <!-- Breadcrumb Navigation -->
+            <nav class="text-sm text-gray-400 mb-4">
+              <a href="index.html" class="hover:text-white">Home</a>
+              <span class="mx-2">/</span>
+              <span>Gym Classes</span>
+            </nav>
+
+            <!-- Heading Section -->
+            <div
+              class="contact-section-1-heading flex flex-col border-l-[5px] border-[#FF0000] px-[10px]"
+            >
+              <h1
+                class="text-[#fff] lg:text-[60px] md:text-[40px] text-[20px] font-bold leading-snug"
+              >
+                SILVA GYM CLASSES
+              </h1>
+              <span
+                class="lg:text-[60px] md:text-[40px] text-[25px] text-[#FF0000] font-bold"
+              >
+                TRAIN WITH THE BEST
+              </span>
+            </div>
+
+            <!-- Short Description -->
+            <div
+              class="flex items-center justify-center lg:w-[80%] md:w-[90%] w-[100%]"
+            >
+              <p
+                class="text-[#F1F1F1] lg:text-xl text-lg font-light leading-relaxed"
+              >
+                Join our wide variety of classes designed to help you stay fit,
+                build strength, and boost endurance. Whether you're a beginner
+                or an advanced athlete, we have the perfect class for you at
+                Silva Gym!
+              </p>
+            </div>
+
+            <!-- Call to Action Button -->
+            <div>
+              <a
+                href="mailto:info@silvagym.com"
+                class="text-[#FF0000] hover:text-white hover:border-red-700 hover:bg-black transition-all duration-300 border border-[#C0C0C0] rounded-full px-[20px] py-[10px] lg:ml-[150px] font-bold"
+              >
+                REGISTER UP FOR A CLASS
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Middle section on contact page -->
+
+      <section class="flex flex-col justify-center items-center bg-black">
+        <div
+          class="flex flex-col items-center justify-center mb-8 text-white contact mx-auto"
+        >
+          <h2 class="text-5xl font-extrabold text-center mb-6 leading-tight">
+            Weekly Gym Schedule
+          </h2>
+          <p
+            class="lg:text-center text-start text-white mb-8 font-thin lg:w-[60%] md:w-[70%] w-[90%]"
+          >
+            Whether you're a yoga enthusiast, a cardio junkie, or someone
+            looking to build strength and endurance, our weekly gym schedule has
+            something for everyone. Stay fit and energized by joining the class
+            that suits your style and fitness goals. Scroll through each day to
+            find your perfect workout session and make the most of your fitness
+            journey!
+          </p>
+        </div>
+        <div
+          class="w-[100%] mx-auto text-white py-10 flex lg:flex-row flex-col justify-between"
+        >
+          <section
+            class="w-full mx-auto lg:p-8 md:p-4 p-2 bg-black rounded-lg shadow-md"
+          >
+            <!-- Section Header -->
+            <div class="text-center mb-10 w-full flex flex-col gap-4">
+              <h2 class="text-4xl font-bold text-red-600">
+                <i class="fas fa-dumbbell"></i> Weekly Gym Classes
+              </h2>
+              <p class="text-lg text-gray-400">Your schedule for all classes</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Weekly Schedule -->
+              <div
+                class="col-span-3 md:col-span-2 bg-gradient-to-b from-gray-900 to-black lg:p-8 md:p-4 p-2 rounded-lg shadow-md border border-gray-700 transition-transform transform hover:scale-105 duration-300"
+              >
+                <h3
+                  class="text-2xl font-semibold text-white text-center mb-6 flex items-center justify-center"
+                >
+                  <i class="fas fa-calendar-week text-red-500 mr-2"></i> This
+                  Week's Classes
+                </h3>
+                <ul class="space-y-6">
+                  <!-- Day Schedule Template -->
+                  <li
+                    class="p-4 bg-red-50 rounded-lg shadow hover:bg-red-100 transition duration-200"
+                  >
+                    <div class="flex justify-between items-center flex-wrap">
+                      <h4
+                        class="text-xl font-medium text-red-600 flex items-center"
+                      >
+                        <i class="fas fa-shoe-prints text-red-500 mr-2"></i>
+                        Monday
+                      </h4>
+                      <p class="text-gray-700 mt-2 md:mt-0">
+                        Yoga Class | 09:00 - 10:00
+                      </p>
+                    </div>
+                    <p class="text-sm text-gray-500">
+                      Instructor: Jane Doe | Room A
+                    </p>
+                  </li>
+                  <!-- Repeat for other days -->
+                  <li
+                    class="p-4 bg-red-50 rounded-lg shadow hover:bg-red-100 transition duration-200"
+                  >
+                    <div class="flex justify-between items-center flex-wrap">
+                      <h4
+                        class="text-xl font-medium text-red-600 flex items-center"
+                      >
+                        <i class="fas fa-running text-red-500 mr-2"></i> Tuesday
+                      </h4>
+                      <p class="text-gray-700 mt-2 md:mt-0">
+                        HIIT Class | 10:00 - 11:00
+                      </p>
+                    </div>
+                    <p class="text-sm text-gray-500">
+                      Instructor: John Smith | Studio B
+                    </p>
+                  </li>
+                  <!-- Add additional days -->
+                </ul>
+              </div>
+
+              <!-- Highlighted Class -->
+              <div
+                class="flex flex-col items-center justify-center bg-red-600 text-white p-6 rounded-lg shadow-lg mb-10 md:mb-0 transition-transform transform hover:scale-105 duration-300"
+              >
+                <h3
+                  class="lg:text-xl md:text-md text-sm font-semibold mb-4 text-center"
+                >
+                  <i class="fas fa-star text-yellow-300 mr-2"></i> Highlight of
+                  the Day
+                </h3>
+                <div class="text-center">
+                  <h4 class="lg:text-2xl md:text-xl text-md font-bold">
+                    Strength Training Class
+                  </h4>
+                  <p class="text-lg">12:00 - 01:00 PM</p>
+                  <p class="text-sm">Instructor: John Smith | Studio A</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Features -->
+            <div class="grid lg:grid-cols-3 grid-cols-2 gap-8 mt-12">
+              <!-- Upcoming Events -->
+              <div
+                class="lg:col-span-1 col-span-2 from-gray-900 to-gray-800 lg:p-8 md:p-4 p-2 rounded-xl shadow-lg border border-gray-700 transition-all transform hover:scale-105 hover:shadow-2xl duration-300"
+              >
+                <h3
+                  class="text-3xl font-bold text-white mb-6 flex items-center space-x-2"
+                >
+                  <i class="fas fa-calendar-alt text-red-500"></i>
+                  <span>Upcoming Events</span>
+                </h3>
+                <ul class="space-y-6">
+                  <li
+                    class="flex items-start space-x-4 hover:bg-gray-700 p-4 rounded-lg transition duration-200"
+                  >
+                    <i class="fas fa-apple-alt text-red-500 text-2xl"></i>
+                    <div>
+                      <h4 class="text-xl font-medium text-red-500">
+                        Nutrition Workshop
+                      </h4>
+                      <p class="text-sm text-gray-400">
+                        Saturday, 10:00 AM - 12:00 PM
+                      </p>
+                    </div>
+                  </li>
+                  <li
+                    class="flex items-start space-x-4 hover:bg-gray-700 p-4 rounded-lg transition duration-200"
+                  >
+                    <i class="fas fa-dumbbell text-red-500 text-2xl"></i>
+                    <div>
+                      <h4 class="text-xl font-medium text-red-500">
+                        Strength Training Bootcamp
+                      </h4>
+                      <p class="text-sm text-gray-400">
+                        Sunday, 11:00 AM - 01:00 PM
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Trainer Profiles -->
+              <div
+                class="lg:col-span-1 md:col-span-1 col-span-2 bg-gradient-to-r from-gray-800 to-black p-6 rounded-lg shadow-lg border border-gray-700 transition-transform transform hover:scale-105 duration-300"
+              >
+                <h3
+                  class="text-2xl font-semibold text-white mb-4 flex items-center"
+                >
+                  <i class="fas fa-chalkboard-teacher text-red-500 mr-2"></i
+                  >Meet Our Trainers
+                </h3>
+                <ul class="space-y-8">
+                  <li class="flex items-center space-x-4">
+                    <!-- Trainer Image -->
+                    <img
+                      src="./Project-Files/coach4.jpg"
+                      alt="Jane Doe"
+                      class="object-cover w-24 h-24 rounded-full border-2 border-red-500"
+                    />
+                    <div>
+                      <h4 class="text-xl font-medium text-white">Jane Doe</h4>
+                      <p class="text-sm text-gray-400">
+                        Specialty: Yoga & Pilates
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-center space-x-4">
+                    <!-- Trainer Image -->
+                    <img
+                      src="./Project-Files/coach1.jpg"
+                      alt="John Smith"
+                      class="object-cover w-24 h-24 rounded-full border-2 border-red-500"
+                    />
+                    <div>
+                      <h4 class="text-xl font-medium text-white">John Smith</h4>
+                      <p class="text-sm text-gray-400">
+                        Specialty: HIIT & Boxing
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Membership Offers -->
+              <div
+                class="lg:col-span-1 md:col-span-1 col-span-2 bg-gradient-to-r from-gray-800 to-black p-6 rounded-lg shadow-lg border border-gray-700 transition-transform transform hover:scale-105 duration-300"
+              >
+                <h3
+                  class="text-2xl font-semibold text-white mb-4 flex items-center"
+                >
+                  <i class="fas fa-ticket-alt text-red-500 mr-2"></i>Membership
+                  Offers
+                </h3>
+                <ul class="space-y-4">
+                  <li>
+                    <h4 class="text-xl font-medium text-red-500">
+                      Monthly Membership
+                    </h4>
+                    <p class="text-sm text-gray-400">$50/month</p>
+                   <a href="./register.html">
+                    <button
+                    class="bg-red-600 text-white py-2 px-4 rounded hover:bg-black transition duration-200"
+                  >
+                    Sign Up
+                  </button>
+                   </a>
+                  </li>
+                  <li>
+                    <h4 class="text-xl font-medium text-red-500">
+                      Yearly Membership
+                    </h4>
+                    <p class="text-sm text-gray-400">$500/year</p>
+                   <a href="./register.html">
+                    <button
+                    class="bg-red-600 text-white py-2 px-4 rounded hover:bg-black transition duration-200"
+                  >
+                    Sign Up
+                  </button>
+                   </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Client Testimonials -->
+            <div
+              class="mt-12 lg:p-8 md:p-4 p-2 bg-gray-900 rounded-lg shadow-xl border border-gray-800"
+            >
+              <h3 class="text-3xl font-bold text-white text-center mb-8">
+                💬 What Our Members Say
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div
+                  class="lg:p-6 p-3 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105"
+                >
+                  <!-- Placeholder for Profile Image -->
+                  <span
+                    class="w-[100px] h-[100px] bg-gray-600 rounded-full mr-4 block"
+                  >
+                    <img
+                      src="./Project-Files/client2.jfif"
+                      alt=""
+                      class="object-cover w-[100px] h-[100px] rounded-full"
+                    />
+                  </span>
+                  <div class="flex items-start">
+                    <div>
+                      <i
+                        class="fas fa-quote-left text-red-500 text-2xl mr-4"
+                      ></i>
+                      <p class="text-lg text-gray-300">
+                        "This gym has the best instructors and classes! I’ve
+                        never felt more motivated, and the personalized
+                        attention from the trainers makes every workout both
+                        challenging and enjoyable. The variety of classes keeps
+                        things fresh, ensuring there's something for everyone,
+                        regardless of fitness level."
+                      </p>
+                      <p class="mt-4 text-sm text-gray-500">- Emily R.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div
+                  class="lg:p-6 p-3 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105"
+                >
+                  <!-- Placeholder for Profile Image -->
+                  <span
+                    class="w-[100px] h-[100px] bg-gray-600 rounded-full mr-4 block"
+                  >
+                    <img
+                      src="./Project-Files/client3.webp"
+                      alt=""
+                      class="object-cover w-[100px] h-[100px] rounded-full"
+                    />
+                  </span>
+                  <div class="flex items-start">
+                    <div>
+                      <i
+                        class="fas fa-quote-left text-red-500 text-2xl mr-4"
+                      ></i>
+                      <p class="text-lg text-gray-300">
+                        "Great atmosphere and equipment. The trainers are super
+                        friendly and helpful, always ready to guide you with
+                        personalized tips and encouragement. The positive energy
+                        in the gym makes it a welcoming space for both beginners
+                        and experienced fitness enthusiasts alike!"
+                      </p>
+                      <p class="mt-4 text-sm text-gray-500">- Michael B.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div
+                  class="lg:p-6 p-3 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105"
+                >
+                  <!-- Placeholder for Profile Image -->
+                  <span
+                    class="w-[100px] h-[100px] bg-gray-600 rounded-full mr-4 block"
+                  >
+                    <img
+                      src="./Project-Files/client4.jpg"
+                      alt=""
+                      class="object-cover w-[100px] h-[100px] rounded-full"
+                    />
+                  </span>
+                  <div class="flex items-start">
+                    <div>
+                      <i
+                        class="fas fa-quote-left text-red-500 text-2xl mr-4"
+                      ></i>
+                      <p class="text-lg text-gray-300">
+                        "The variety of classes keeps me engaged and excited for
+                        every session! There's always something new to try, and
+                        the dynamic workouts ensure that I'm constantly
+                        challenged and making progress toward my fitness goals."
+                      </p>
+                      <p class="mt-4 text-sm text-gray-500">- Sarah L.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div
+                  class="lg:p-6 p-3 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105"
+                >
+                  <!-- Placeholder for Profile Image -->
+                  <span
+                    class="w-[100px] h-[100px] bg-gray-600 rounded-full mr-4 block"
+                  >
+                    <img
+                      src="./Project-Files/client5.jpg"
+                      alt=""
+                      class="object-cover w-[100px] h-[100px] rounded-full"
+                    />
+                  </span>
+                  <div class="flex items-start">
+                    <div>
+                      <i
+                        class="fas fa-quote-left text-red-500 text-2xl mr-4"
+                      ></i>
+                      <p class="text-lg text-gray-300">
+                        "I love how welcoming the community is! It’s more than
+                        just a gym; it feels like a family, where everyone
+                        supports and motivates each other. The sense of
+                        belonging makes every visit enjoyable and keeps me
+                        coming back."
+                      </p>
+                      <p class="mt-4 text-sm text-gray-500">- John D.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQs Section -->
+            <div
+              class="mt-12 p-6 bg-black rounded-lg shadow-lg border border-white"
+            >
+              <h3 class="text-2xl font-semibold text-white text-center mb-6">
+                ❓ Frequently Asked Questions
+              </h3>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-12 text-white"
+              >
+                <!-- FAQ Column 1 -->
+                <ul class="space-y-8">
+                  <li>
+                    <div class="flex items-center">
+                      <i
+                        class="fas fa-question-circle text-red-500 text-xl mr-4"
+                      ></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          What should I bring to class?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          Comfortable workout clothes, a towel, and water.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <i class="fas fa-dumbbell text-red-500 text-xl mr-4"></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          Are there weight training classes?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          Yes, we offer strength and conditioning classes.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- FAQ Column 2 -->
+                <ul class="space-y-8">
+                  <li>
+                    <div class="flex items-center">
+                      <i class="fas fa-users text-red-500 text-xl mr-4"></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          Can I join classes as a beginner?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          Absolutely! We offer beginner-friendly classes.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <i class="fas fa-heartbeat text-red-500 text-xl mr-4"></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          Do you have yoga and cardio classes?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          Yes, our schedule includes yoga, cardio, and more.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- FAQ Column 3 -->
+                <ul class="space-y-8">
+                  <li>
+                    <div class="flex items-center">
+                      <i class="fas fa-clock text-red-500 text-xl mr-4"></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          How early should I arrive for class?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          We recommend arriving 10-15 minutes early.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <i
+                        class="fas fa-calendar-alt text-red-500 text-xl mr-4"
+                      ></i>
+                      <div>
+                        <h4 class="text-lg font-bold">
+                          Do I need to sign up for classes?
+                        </h4>
+                        <p class="text-sm text-gray-300">
+                          Yes, you can sign up online or at the front desk.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[#0D0D0D]">
+
+        <div class="flex lg:flex-row md:flex-row flex-col lg:justify-evenly lg:p-[15px] text-[#C0C0C0]">
+
+            <div
+                class="flex lg:flex-row md:flex-row flex-col items-center lg:w-[55vw] md:w-[50vw] w-[100vw] lg:p-[15px]">
+
+                <div class="flex justify-center items-center lg:w-[20vw] md:w-[25vw] w-[100vw] p-[15px]">
+                    <img src="./Project-Files/Silva-Gym-logo.png" class="">
+                </div>
+
+                <div class="flex flex-col justify-center items-start lg:w-[30vw] md:w-[25vw] w-[90vw] p-[15px]">
+                    <h2 class="text-[#FF0000] font-bold my-[20px] lg:text-[30px] text-[20px]">SILVAGYM</h2>
+                    <p class="text-[16px] md:text-[14px]">Build strength, confidence, and resilience at our Silva gym
+                        with state-of-the-art equipment, personalized training programs tailored to your needs, and a
+                        motivating community that supports you every step of the way.</p>
+                </div>
+
+            </div>
+
+            <div
+                class="flex flex-row  lg:justify-evenly items-center lg:w-[45vw] md:w-[50vw] w-[100vw] lg:p-[15px] py-[15px] px-[25px]">
+
+                <div class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] ">
+
+                    <h2 class="text-[#FF0000] lg:text-[20px] font-bold py-[20px]">SITEMAP</h2>
+
+                    <ul class="flex flex-col gap-2">
+                        <li><a href="#home" class="lg:text-[18px] hover:font-[600]">Home</a></li>
+                        <li><a href="#advantages" class="lg:text-[18px] hover:font-[600]">Advantages</a></li>
+                        <li><a href="#membership" class="lg:text-[18px] hover:font-[600]">Membership</a></li>
+                        <li><a href="#about-us" class="lg:text-[18px] hover:font-[600]">About Us</a></li>
+                        <li><a href="./classes.html" class="lg:text-[18px] hover:font-[600]">Our Classes</a></li>
+                        <li><a href="#team" class="lg:text-[18px] hover:font-[600]">Team</a></li>
+                        <li><a href="./register.html" class="lg:text-[18px] hover:font-[600]">Registration</a></li>
+                        <li><a href="./contact.html" class="lg:text-[18px] hover:font-[600]">Contact</a></li>
+                    </ul>
+
+                </div>
+
+                <div
+                    class="flex flex-col justify-center items-start lg:w-[20vw] md:w-[25vw] w-[60vw] lg:px-[15px] px-[5px]">
+
+                    <h2 class="text-[#FF0000] font-bold py-[20px] lg:text-[20px]">CONTACT</h2>
+
+                    <ul class="flex flex-col gap-2 lg:text-[15px] text-[13px]">
+                        <li>
+                            <p><i class="fa-solid fa-phone-volume lg:mx-[10px] mx-[5px]"></i>0780056819</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-regular fa-envelope lg:mx-[10px] mx-[5px]"></i>thesilvagymrw@gmail.com</p>
+                        </li>
+                        <li>
+                            <p><i class="fa-solid fa-location-dot lg:mx-[10px] mx-[5px]"></i>KABC Building, Kigali</p>
+                        </li>
+                    </ul>
+
+                    <div class="flex mt-[20px] text-[20px] md:text-[30px]">
+                        <a href="https://wa.me/250780056819" class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/thesilvagym/#"
+                            class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="mailto:thesilvagymrw@gmail.com"
+                            class="mx-[10px] hover:text-[22px] md:hover:text-[32px]"><i
+                                class="fa-regular fa-envelope"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="p-[20px] text-center text-[#C0C0C0] text-[17px] font-[italic] border-t border-[gray]">
+            <p>&copy; SILVAGYM. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>

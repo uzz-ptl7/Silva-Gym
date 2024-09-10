@@ -66,3 +66,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// codes for class schedules ..........
+function toggleAccordion(day) {
+    const content = document.getElementById(`${day}-content`);
+    const icon = document.getElementById(`${day}-icon`);
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.classList.add('rotate-180');
+    } else {
+      content.classList.add('hidden');
+      icon.classList.remove('rotate-180');
+    }
+  }
+
+//   .........registration drop downs .................
+const dropdownButton = document.getElementById('dropdownButton');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+  const options = dropdownMenu.querySelectorAll('button');
+
+  dropdownButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', (e) => {
+      dropdownButton.textContent = e.target.textContent;
+      dropdownMenu.classList.add('hidden');
+    });
+  });
+
+  // Hide the dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.add('hidden');
+    }
+});
